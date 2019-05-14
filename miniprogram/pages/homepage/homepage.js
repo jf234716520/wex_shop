@@ -145,10 +145,12 @@ Page({
     // )
     app.getInfoByOrder('fruit-board', 'time', 'desc',
       e => {
+       
         getCurrentPages()["0"].setData({
           fruitInfo: e.data,
           isShow: true
         })
+        
         wx.hideLoading()
       }
     )

@@ -1,9 +1,9 @@
 {
   "cloud": true,
   "pages": [
+    "pages/bgInfo/bgInfo",
     "pages/homepage/homepage",
     "pages/bgManage/bgManage",
-    "pages/bgInfo/bgInfo",
     "pages/cart/cart",
     "pages/me/me",
     "pages/detail/detail",

@@ -33,10 +33,10 @@
   <!-- 其他信息 -->
   <view class='other-info'>
     <!-- 选项卡 -->
-    <view class="goods-tab-box">
+   <!-- <view class="goods-tab-box">
         <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">详情</view>
         <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">评论</view>
-    </view>
+    </view>-->
 
     <!-- 评论 -->
     <view class="goods-content">
@@ -45,16 +45,11 @@
         </view>
 
         <!-- <view wx:if="{{curIndex === 1}}">{{fruitDetail.service}}</view> -->
-        <view wx:if="{{curIndex === 0}}" class='theDetail'>
+        <view  class='theDetail'>
           {{fruitDetail.detail}}
         </view>
     </view>
   </view>
-
-  
-
-
-  
 
   <!-- 底部导航 -->
   <view class='detail-nav'>
