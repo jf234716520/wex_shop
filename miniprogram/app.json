@@ -1,15 +1,17 @@
 {
   "cloud": true,
   "pages": [
-    "pages/bgInfo/bgInfo",
+    "pages/logo/logo",
     "pages/homepage/homepage",
+    "pages/bgInfo/bgInfo",
     "pages/bgManage/bgManage",
     "pages/cart/cart",
     "pages/me/me",
     "pages/detail/detail",
     "pages/pay/pay",
     "pages/address/address",
-    "pages/orders/orders"
+    "pages/orders/orders",
+    "pages/index"
   ],
   "window": {
     "backgroundColor": "#F0F0F0",
