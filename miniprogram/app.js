@@ -34,6 +34,7 @@ App({
 
   // --------------常用----------------
 
+
   // 判断购物车中是否有重复后添加购物车
   isNotRepeteToCart: function (newCartItem) {
     var self = this

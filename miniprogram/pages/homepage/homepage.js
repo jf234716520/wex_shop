@@ -143,7 +143,7 @@ Page({
     //     wx.hideLoading()
     //   }
     // )
-    app.getInfoByOrder('fruit-board', 'time', 'desc',
+    app.getInfoWhere('fruit-board', { "type": "1" },
       e => {
        
         getCurrentPages()["0"].setData({
