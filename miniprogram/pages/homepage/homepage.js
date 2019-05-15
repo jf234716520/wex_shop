@@ -83,7 +83,7 @@ Page({
         break;
       // 销量排行
       case '2':
-        app.getInfoByOrder('fruit-board','time','desc',
+        app.getInfoWhere('fruit-board', { myClass: '2' },
           e => {
             getCurrentPages()["0"].setData({
               fruitInfo: e.data

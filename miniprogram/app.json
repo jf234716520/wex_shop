@@ -10,8 +10,7 @@
     "pages/detail/detail",
     "pages/pay/pay",
     "pages/address/address",
-    "pages/orders/orders",
-    "pages/index"
+    "pages/orders/orders"
   ],
   "window": {
     "backgroundColor": "#F0F0F0",
@@ -27,9 +26,15 @@
     "list": [
       {
         "pagePath": "pages/homepage/homepage",
-        "text": "水果",
-        "iconPath": "images/tabBar/homepage-sel.png",
-        "selectedIconPath": "images/tabBar/homepage.png"
+        "text": "临期商品",
+        "iconPath": "images/tabBar/store1.png",
+        "selectedIconPath": "images/tabBar/store1_s.png"
+      },
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "信用商品",
+        "iconPath": "images/tabBar/store2.png",
+        "selectedIconPath": "images/tabBar/store2_s.png"
       },
       {
         "pagePath": "pages/cart/cart",

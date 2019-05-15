@@ -10,14 +10,14 @@
     <swiper></swiper>
   </view>
 
-  <!-- 分类展示 -->
+  <!-- 分类展示 
   <view class='type-container'>
     <view class='type-item' wx:for="{{typeCat}}" wx:key="id">
       <view id='{{item.id}}' class="type-name {{activeTypeId === item.id ? 'type-item-on' : ''}}" bindtap='typeSwitch'>
         {{item.name}}
       </view>
     </view>
-  </view>
+  </view>-->
 
   <!-- 商品图 -->
   <view class='extra'></view>
@@ -56,7 +56,7 @@
   <!-- 底部 -->
   <view class='homeBottom'>
     <view class='bottomLine'></view>
-    <view class='bottomWord'>coding by Voyz_Shen</view>
+    <view class='bottomWord'>~人家也是有下限的~</view>
     <view class='bottomLine'></view>
   </view>
 
