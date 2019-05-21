@@ -3,6 +3,7 @@
   "pages": [
     "pages/logo/logo",
     "pages/homepage/homepage",
+    "pages/homepage2/homepage2",
     "pages/bgInfo/bgInfo",
     "pages/bgManage/bgManage",
     "pages/cart/cart",
@@ -16,7 +17,7 @@
     "backgroundColor": "#F0F0F0",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFF5EE",
-    "navigationBarTitleText": "Fruit-store",
+    "navigationBarTitleText": "霹雳购",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -31,7 +32,7 @@
         "selectedIconPath": "images/tabBar/store1_s.png"
       },
       {
-        "pagePath": "pages/homepage/homepage",
+        "pagePath": "pages/homepage2/homepage2",
         "text": "信用商品",
         "iconPath": "images/tabBar/store2.png",
         "selectedIconPath": "images/tabBar/store2_s.png"

@@ -17,6 +17,7 @@ Page({
       complete: res => {
         console.log('云函数获取到的openid: ', res.result.openId)
         var openid = res.result.openId;
+        app.globalData.openid = openid;
         that.setData({
           openid: openid
         })

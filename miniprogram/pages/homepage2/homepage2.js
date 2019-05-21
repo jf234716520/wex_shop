@@ -5,7 +5,6 @@ const app = getApp()
 
 Page({
   data: {
-    cart:{},
     swiperImgNo: 1,
     imgSwiperUrl: '',
     goodInfo: [],
@@ -23,7 +22,6 @@ Page({
 
   // ------------生命周期函数------------
   onLoad: function (options) {
-    console.log("s")
     var that = this
     wx.showLoading({
       title: '加载中',
@@ -31,11 +29,8 @@ Page({
     that.setData({
       isShow: false
     })
-    app.getInfoWhereInOrder("cart", { 'openid': app.globalData.openid }, 'openid', 'asc', function (e) {
-      that.setData({
-        cart: e.result.data[0]
-      })
-    })
+    // 获取openId
+    //this.getOpenid();
   },
 
   onReady: function () {
@@ -43,9 +38,8 @@ Page({
   },
 
   onShow: function () {
-    console.log("s")
     var that = this;
-    app.getInfoWhereInOrder('goods_list', { "good_type": "1","is_show":"1" }, 'create_time', 'asc',function(e){
+    app.getInfoWhereInOrder('goods_list', { "good_type": "2","is_show":"1" }, 'create_time', 'asc',function(e){
       that.setData({
         goodInfo: e.result.data,
         isShow: true
@@ -64,14 +58,7 @@ Page({
   },
 
   onHide: function () {
-    let that = this;
-    delete (that.data.cart._id);
-    app.updateDB("cart", that.data.cart._id, that.data.cart, function (e) {
-      
-      that.setData({
-        popUpHidden: true
-      });
-    })
+
   },
 
   onUnload: function () {
@@ -108,28 +95,20 @@ Page({
 
   // ------------加入购物车------------
   addCartByHome: function (e) {
-    var that = this
+    // console.log(e.currentTarget.dataset._id)
+    var self = this
+    let newItem = {}
+    app.getInfoWhere('goods_list', { _id: e.currentTarget.dataset._id },
+      e => {
 
-    //遍历
-    var isRepete = false;
-    that.data.cart.good.forEach(function (v) {
-      if (v.good_id == e.currentTarget.dataset._id) {
-        isRepete = true;
+        var newCartItem = e.data["0"]
+        newCartItem.num = 1
+        app.isNotRepeteToCart(newCartItem)
+        wx.showToast({
+          title: '已添加至购物车',
+        })
       }
-    });
-    if (isRepete) {
-      wx.showToast({
-        title: '已经添加过了~',
-      })
-    } else {
-      that.data.cart.good.push({
-        "good_id": e.currentTarget.dataset._id,
-        "num": 1
-      });
-      wx.showToast({
-        title: '已添加至购物车',
-      });
-    }
+    )
   },
 
 

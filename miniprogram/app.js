@@ -12,11 +12,12 @@ App({
     }
 
     this.globalData = {
+      openid:'',
       cloudRoot : "clo140d-voyz-cloud-86f82a/",
       carts:[],  //购物车
       tmpNum: 0,
       tempFilePaths: "",
-      admin:["Mr.Voyz"],
+      admin:["preGo"],
       openId: null,
       appid: 'wx0dd8c5c9ebe90a78',
       mch_id: '1519277861',
@@ -133,6 +134,7 @@ App({
     now = now + setFormat(date.getSeconds());
     return now;
   },
+  //获取openid
 
   // --------------数据库操作----------------
 
@@ -143,6 +145,19 @@ App({
       data: infoObject,
       success:callback,
       fail: console.error
+    })
+  },
+  //添加数据
+  addRows:function(setName,rows,callback){
+    wx.cloud.callFunction({
+      name: 'insert',
+      data: {
+        setName: setName,
+        rows: rows
+      },
+      complete: function (e) {
+        callback(e)
+      }
     })
   },
 
@@ -162,6 +177,22 @@ App({
         success: callback,
         fail: console.error
       })
+  },
+
+  // 从集合中筛选数据并排序
+  getInfoWhereInOrder: function (setName, condition, ruleItem, orderFuc,callback) {
+    wx.cloud.callFunction({
+      name: 'select',
+      data:{
+        setName:setName,
+        condition: condition,
+        ruleItem: ruleItem,
+        orderFuc: orderFuc
+      },
+      complete: function(e){
+        callback(e)
+      }
+    })
   },
 
   // 排序后取出数据
@@ -195,6 +226,20 @@ App({
       data: updateInfoObj,
       success: callback,
       fail: console.error
+    })
+  },
+
+  updateDB:function(setName,_id,value,callback){
+    wx.cloud.callFunction({
+      name: 'update',
+      data: {
+        setName: setName,
+        _id: _id,
+        value: value
+      },
+      complete: function (e) {
+        callback(e)
+      }
     })
   },
 

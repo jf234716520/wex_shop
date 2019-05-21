@@ -5,13 +5,13 @@
         <!-- 选项卡 -->
         <view class="cart-box">
             <!-- 商品卡片 -->
-            <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+            <view class="cart-list" wx:for="{{cart.good}}" wx:key="{{index}}">
                 <!-- 勾选图标 -->
-                <icon wx:if="{{item.selected}}" type="success" color="orange" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
+                <icon wx:if="{{item.sel}}" type="success" color="orange" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
                 <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
                 <!-- 商品图片 -->
-                <navigator url="../details/details?id={{item.fruitID}}">
-                  <image class="cart-thumb" src="{{item.imgUrl}}"></image>
+                <navigator url="../details/details?_id={{item.good_id}}">
+                  <image class="cart-thumb" src="{{item.img}}"></image>
                 </navigator>
                 <!-- 名称 -->
                 <text class="cart-pro-name">{{item.name}}</text>

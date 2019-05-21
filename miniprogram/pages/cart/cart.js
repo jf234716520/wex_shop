@@ -3,35 +3,69 @@ const app = getApp()
 
 Page({
   data: {
-    carts: [],               // 购物车列表
+    cart: {},               // 购物车列表
     hasList: false,          // 列表是否有数据
     totalPrice: 0,           // 总价，初始为0
-    selectAllStatus: false,    // 全选状态，默认全选
-    obj: {name: "hello"}
+    obj: {name: "hello"},
+    goodList:[]
   },
 
   onLoad(e) {
-    // var self = this
-    // self.getTotalPrice();
-    // self.selectAll();
+    wx.showLoading({
+      title: '加载中',
+    })
   },
 
-  onShow() {
+  onShow:function() {
     var self = this
-    self.data.carts = app.globalData.carts
-    if (app.globalData.carts.length != 0) {
+    app.getInfoWhereInOrder("cart", { 'openid': app.globalData.openid }, 'openid', 'asc', function (e) {
       self.setData({
-        hasList: true,
+        cart: e.result.data[0]
       });
-    } 
-    self.selectAll();
-    self.getTotalPrice();
+      
+      wx.cloud.callFunction({
+        name: 'selectAll',
+        data: {
+          setName: "goods_list"
+        },
+        complete: function (e2) {
+          self.setData({
+            goodList: e2.result.data
+          });
+          //遍历购物车商品
+          let cart_good = self.data.cart.good;
+          let all_good = self.data.goodList;
+          cart_good.forEach(function (cart_value,cart_index){
+            all_good.forEach(function (all_value, all_index) {
+              if (all_value._id == cart_value.good_id){
+                cart_value.name = all_value.good_name;
+                cart_value.price = all_value.good_price;
+                cart_value.unit = all_value.good_unit;
+                cart_value.type = all_value.good_type;
+                cart_value.onSale = all_value.is_show;
+                cart_value.img = all_value.good_img[0];
+                
+              }
+            })
+          })
+          if (self.data.cart.good.length!=0){
+            self.setData({
+              hasList: true
+            });
+          }
+          self.getTotalPrice();
+          wx.hideLoading()
+        }
+      })
+    })    
   },
-
+ 
   onHide: function () {
-    var self = this
-    self.getTotalPrice();
-    self.selectAll();
+    var cartId = this.data.cart._id;
+    delete (this.data.cart._id);
+    app.updateDB('cart', cartId, this.data.cart,function(e){
+      console.log(e)
+    });
   },
 
   /**
@@ -40,13 +74,13 @@ Page({
   selectList(e) {
     var self = this
     const index = e.currentTarget.dataset.index;
-    let carts = this.data.carts;
-    const selected = carts[index].selected;
-    carts[index].selected = !selected;
+    let cart = this.data.cart;
+    const selected = cart.good[index].sel;
+    cart.good[index].sel = !selected;
     this.setData({
-      carts: carts
+      cart: cart
     });
-    app.globalData.carts = carts
+    
     this.getTotalPrice();
   },
 
@@ -55,13 +89,13 @@ Page({
    */
   deleteList(e) {
     const index = e.currentTarget.dataset.index;
-    let carts = this.data.carts;
-    carts.splice(index, 1);
+    let good = this.data.cart.good;
+    good.splice(index, 1);
     this.setData({
-      carts: carts
+      cart: this.data.cart
     });
-    app.globalData.carts = carts
-    if (!carts.length) {
+    
+    if (!good.length) {
       this.setData({
         hasList: false
       });
@@ -76,10 +110,10 @@ Page({
   selectAll(e) {
     let selectAllStatus = this.data.selectAllStatus;
     selectAllStatus = !selectAllStatus;
-    let carts = this.data.carts;
+    let good = this.data.cart.good;
 
-    for (let i = 0; i < carts.length; i++) {
-      carts[i].selected = selectAllStatus;
+    for (let i = 0; i < good.length; i++) {
+      good[i].selected = selectAllStatus;
     }
     this.setData({
       selectAllStatus: selectAllStatus,
@@ -94,14 +128,10 @@ Page({
    */
   addCount(e) {
     const index = e.currentTarget.dataset.index;
-    let carts = this.data.carts;
-    let num = carts[index].num;
+    let good = this.data.cart.good;
+    let num = good[index].num;
     num = num + 1;
-    carts[index].num = num;
-    this.setData({
-      carts: carts
-    });
-    app.globalData.carts = carts
+    good[index].num = num;   
     this.getTotalPrice();
   },
 
@@ -110,18 +140,13 @@ Page({
    */
   minusCount(e) {
     const index = e.currentTarget.dataset.index;
-    const obj = e.currentTarget.dataset.obj;
-    let carts = this.data.carts;
-    let num = carts[index].num;
-    if (num <= 1) {
-      return false;
+    let good = this.data.cart.good;
+    let num = good[index].num;
+    if (num == 0){
+    }else{
+      num = num - 1;
     }
-    num = num - 1;
-    carts[index].num = num;
-    this.setData({
-      carts: carts
-    });
-    app.globalData.carts = carts
+    good[index].num = num;
     this.getTotalPrice();
   },
 
@@ -129,18 +154,22 @@ Page({
    * 计算总价
    */
   getTotalPrice() {
-    let carts = this.data.carts;                  // 获取购物车列表
+    let cart = this.data.cart;                  // 获取购物车列表
+    let good = cart.good;
     let total = 0;
-    for (let i = 0; i < carts.length; i++) {         // 循环列表得到每个数据
-      if (carts[i].selected) {                     // 判断选中才会计算价格
-        total += carts[i].num * carts[i].price;   // 所有价格加起来
+    for (let i = 0; i < good.length; i++) {         // 循环列表得到每个数据
+      if(good[i].num==0){
+        good[i].sel=false;
+      }
+      if (good[i].sel) {                     // 判断选中才会计算价格
+        total += good[i].num * good[i].price;   // 所有价格加起来
       }
     }
     this.setData({                                // 最后赋值到data中渲染到页面
-      carts: carts,
+      cart: cart,
       totalPrice: total.toFixed(1)
     });
-    app.globalData.carts = carts    
+      
   }
 
 })

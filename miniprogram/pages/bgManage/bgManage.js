@@ -4,8 +4,8 @@ Page({
   data: {
     orderList:{},
     sendingList:{},
-    finishedList:{},
-    cardNum: 1,
+    
+    cardNum:2,
   },
 
   /**
@@ -45,51 +45,50 @@ Page({
   // ----------------------!!!  订单管理  !!!----------------------
   // 已支付-发货
   boxFruit: function(e) {
-    var that = this
-    console.log(e.currentTarget.id)
-    app.updateInfo('order_master', e.currentTarget.id, {
-      sending: true,
-      sendingTime: app.CurrentTime_show()
-    }, e => {
-      that.getAllList()
-      wx.showToast({
-        title: '【已发货】',
-      })
-    })
+    
+   
+   
   },
 
   // 已发货-送达
   sendingFruit: function(e) {
     var that = this
-    console.log(e.currentTarget.id)
-    app.updateInfo('order_master', e.currentTarget.id, {
-      finished: true,
-      finishedTime: app.CurrentTime_show()
-    }, e => {
-      that.getAllList()
-      wx.showToast({
-        title: '【已送达】',
-      })
+    wx.showModal({
+      title: '提示',
+      content: '确认订单已完成？',
+      success(res) {
+        if (res.confirm) {
+          app.updateInfo('order_manage', e.currentTarget.id, {
+            'isFinished': '1',
+            'sendingTime': app.CurrentTime_show()
+          }, e => {
+            that.getAllList()
+          })
+        } else if (res.cancel) {
+          return;
+        }
+      }
     })
   },
   
   // 获取所有订单信息
   getAllList:function(){
     var that = this
-    app.getInfoByOrder('order_master', 'orderTime', 'desc', e => {
+    /*app.getInfoByOrder('order_master', 'orderTime', 'asc', e => {
       that.setData({
         orderList: e.data
       })
       console.log(e.data)
-    })
-    app.getInfoByOrder('order_master', 'sendingTime', 'desc', e => {
+    })*/
+    app.getInfoWhereInOrder('order_manage', { 'isFinished': '0' }, 'orderTime', 'desc', e => {
       that.setData({
         sendingList: e.data
       })
     })
-    app.getInfoByOrder('order_master', 'finishedTime', 'desc', e => {
+    app.getInfoWhereInOrder('order_manage', {'isFinished':'1'},'orderTime', 'asc', e => {
+      console.log(e)
       that.setData({
-        finishedList: e.data
+        orderList: e.data
       })
     })
   },
