@@ -13,9 +13,7 @@ Page({
   },
 
   onReady() {
-    const self = this;
-    // console.log(app.globalData.carts)
-    
+    const self = this; 
     // 32位随机字符串
     var nonce_str = app.RndNum()
 
@@ -40,8 +38,14 @@ Page({
     })
 
     // 获取总价和openid
+    var orders = [];
+    app.globalData.carts.forEach(function(v){
+      if(v.sel){
+        orders.push(v);
+      }
+    })
     self.setData({
-      orders: app.globalData.carts,
+      orders: orders,
       nonce_str: nonce_str
     })
     this.getOpenid();
@@ -66,17 +70,18 @@ Page({
    * 计算总价
    */
   getTotalPrice() {
-    let orders = this.data.orders;
+    var orders = app.globalData.carts;
     let total = 0;
     for (let i = 0; i < orders.length; i++) {
-      total += orders[i].num * orders[i].price;
+      if(orders.sel){
+        total += orders[i].num * orders[i].good_price;
+      }
     }
     this.setData({
       total: total.toFixed(2)
     })
   },
   
-
   // 获取用户openid
   getOpenid() {
     var that = this;

@@ -5,7 +5,6 @@ const app = getApp()
 
 Page({
   data: {
-    cart:{},
     swiperImgNo: 1,
     imgSwiperUrl: '',
     goodInfo: [],
@@ -23,27 +22,16 @@ Page({
 
   // ------------生命周期函数------------
   onLoad: function (options) {
-    console.log("s")
     var that = this
     wx.showLoading({
-      title: '加载中',
+      title: '加载中'
     })
     that.setData({
       isShow: false
     })
-    app.getInfoWhereInOrder("cart", { 'openid': app.globalData.openid }, 'openid', 'asc', function (e) {
-      that.setData({
-        cart: e.result.data[0]
-      })
-    })
-  },
-
-  onReady: function () {
-   
   },
 
   onShow: function () {
-    console.log("s")
     var that = this;
     app.getInfoWhereInOrder('goods_list', { "good_type": "1","is_show":"1" }, 'create_time', 'asc',function(e){
       that.setData({
@@ -63,56 +51,15 @@ Page({
     )
   },
 
-  onHide: function () {
-    let that = this;
-    delete (that.data.cart._id);
-    app.updateDB("cart", that.data.cart._id, that.data.cart, function (e) {
-      
-      that.setData({
-        popUpHidden: true
-      });
-    })
-  },
-
-  onUnload: function () {
-
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-  
-  },
 
   /********************本地方法 ***************************/
-  // 获取用户openid
-  getOpenid() {
-    let that = this;
-    wx.cloud.callFunction({
-      name: 'add',
-      complete: res => {
-        console.log('云函数获取到的openid: ', res.result.openId)
-        var openid = res.result.openId;
-        that.setData({
-          openid: openid
-        })
-      }
-    })
-  },
-
   // ------------加入购物车------------
   addCartByHome: function (e) {
     var that = this
 
     //遍历
     var isRepete = false;
-    that.data.cart.good.forEach(function (v) {
+    app.globalData.carts.forEach(function (v) {
       if (v.good_id == e.currentTarget.dataset._id) {
         isRepete = true;
       }
@@ -122,13 +69,19 @@ Page({
         title: '已经添加过了~',
       })
     } else {
-      that.data.cart.good.push({
-        "good_id": e.currentTarget.dataset._id,
-        "num": 1
-      });
-      wx.showToast({
-        title: '已添加至购物车',
-      });
+      var goodList = app.globalData.goodList;
+      goodList.forEach(function(v){
+        if (v._id == e.currentTarget.dataset._id){
+          var good = v; 
+          good.num =1;
+          good.sel = false;
+          app.globalData.carts.push(good);
+          wx.showToast({
+            title: '已添加至购物车',
+          });
+          return;
+        }
+      })
     }
   },
 

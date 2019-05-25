@@ -4,17 +4,17 @@
         <view wx:if="{{hasAddress}}" class="orders-address">
             <text class="orders-address-name">收货人: {{address.name}}</text>
             <view class="orders-address-phone">电话: {{address.phone}}</view>
-            <view class="orders-address-detail">宿舍楼: {{address.detail}}</view>
-            <view class="orders-address-detail">备注: {{address.message}}</view>
+            <view class="orders-address-detail">宿舍楼: {{address.addressd}}</view>
+            <view class="orders-address-detail">备注: {{address.remark}}</view>
         </view>
         <view wx:else class="orders-no-address">添加收货地址</view>
     </navigator>
 
     <view class="orders-box">
         <view wx:for="{{orders}}" wx:key="index" class="orders-list">
-            <image class="orders-thumb" src="{{item.imgUrl}}"></image>
-            <view class="orders-pro-name">{{item.name}}</view>
-            <view class="orders-pro-price">￥{{item.price}}</view>
+            <image class="orders-thumb" src="{{item.good_img}}"></image>
+            <view class="orders-pro-name">{{item.good_name}}</view>
+            <view class="orders-pro-price">￥{{item.good_price}}</view>
             <view class="orders-count-num">×{{item.num}}</view>
         </view>
     </view>

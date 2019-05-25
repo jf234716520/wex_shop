@@ -15,6 +15,7 @@ App({
       openid:'',
       cloudRoot : "clo140d-voyz-cloud-86f82a/",
       carts:[],  //购物车
+      goodList:[],
       tmpNum: 0,
       tempFilePaths: "",
       admin:["preGo"],

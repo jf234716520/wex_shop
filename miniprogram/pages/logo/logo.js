@@ -6,31 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid:''
+    
   },
-
-  // 获取用户openid
-  getOpenid() {
-    let that = this;
-    wx.cloud.callFunction({
-      name: 'add',
-      complete: res => {
-        console.log('云函数获取到的openid: ', res.result.openId)
-        var openid = res.result.openId;
-        app.globalData.openid = openid;
-        that.setData({
-          openid: openid
-        })
-      }
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    //初始化商品信息
+    this.initGoods();
     // 获取用户openid
     this.getOpenid();
+   
   },
 
   /**
@@ -47,7 +34,7 @@ Page({
   onShow: function () {
     let that = this;
     setTimeout(function () {
-      app.getInfoWhere('customers', { "openid": 'qt-H5MP6rdZqLlR1wXj_IUlBCmg'},
+      app.getInfoWhere('customers', { "openid": app.globalData.openid},
         e => {
           //获取不到openId
           if(that.data.openid==''){
@@ -74,38 +61,24 @@ Page({
     
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  //初始化商品
+  initGoods(){
+    app.getInfoWhereInOrder('goods_list', {"is_show": "1" }, 'create_time', 'asc', function (e) {
+      app.globalData.goodList = e.result.data;
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  // 获取用户openid
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'add',
+      complete: res => {
+        console.log('云函数获取到的openid: ', res.result.openId)
+        var openid = res.result.openId;
+        app.globalData.openid = openid;
 
+      }
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
