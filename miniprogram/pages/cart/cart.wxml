@@ -9,10 +9,10 @@
                 <!-- 勾选图标 -->
                 <icon wx:if="{{item.sel}}" type="success" color="orange" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
                 <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
-                <!-- 商品图片 -->
-                <navigator url="../details/details?_id={{item.good_id}}">
+                <!-- 商品图片
+                <navigator url="../details/details?_id={{item.good_id}}"> -->
                   <image class="cart-thumb" src="{{item.good_img}}"></image>
-                </navigator>
+                 <!--</navigator>-->
                 <!-- 名称 -->
                 <text class="cart-pro-name">{{item.good_name}}</text>
                 <!-- 价格 -->

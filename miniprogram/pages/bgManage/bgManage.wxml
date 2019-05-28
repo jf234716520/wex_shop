@@ -45,9 +45,7 @@
         <view>{{item.name}}</view>
         <view>{{item.phone}}</view>
         <view>{{item.address}}</view>
-         <view wx:if="{{item==1}}">临期商品：</view>
-        <view wx:if="{{item==2}}">信用商品：</view>
-        <view wx:for="{{item.goods}}" wx:for-item="good">{{good.good_name}} × {{good.good_num}}</view>
+        <view wx:for="{{item.goods}}" wx:key="good_id" wx:for-item="good">{{good.good_name}} × {{good.good_num}}</view>
         <view>备注：{{item.remark}}</view>
         <view>总价：￥{{item.total}}</view>
       </view>
@@ -94,11 +92,10 @@
         <view>{{order.name}}</view>
         <view>{{order.phone}}</view>
         <view>{{order.address}}</view>
-        <view wx:if="{{order==1}}">临期商品：</view>
-        <view wx:if="{{order==2}}">信用商品：</view>
         <view wx:for="{{order.goods}}" wx:for-item="good">{{good.good_name}} × {{good.good_num}}</view>
         <view>备注：{{order.remark}}</view>
         <view>下单时间：{{order.orderTime}}</view>
+        <view>送达时间：{{order.finishedTime}}</view>
         <view>订单已完成</view>                   
       </view>
     </view>

@@ -60,7 +60,9 @@ Page({
     //遍历
     var isRepete = false;
     app.globalData.carts.forEach(function (v) {
-      if (v.good_id == e.currentTarget.dataset._id) {
+      console.log(v);
+      console.log(e.currentTarget.dataset._id);
+      if (v._id == e.currentTarget.dataset._id) {
         isRepete = true;
       }
     });

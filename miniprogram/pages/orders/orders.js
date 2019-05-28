@@ -5,7 +5,8 @@ Page({
   data: {
     address: {},
     hasAddress: false,
-    total: 0,
+    total1: 0,//临期商品总价
+    total2: 0,//信用商品总价
     orders: [],
     myList: [],
     openid: '',
@@ -70,16 +71,22 @@ Page({
    * 计算总价
    */
   getTotalPrice() {
-    var orders = app.globalData.carts;
-    let total = 0;
+    var orders = app.globalData.carts; 
+    let total1 = 0;
+    let total2 = 0;
     for (let i = 0; i < orders.length; i++) {
-      if(orders.sel){
-        total += orders[i].num * orders[i].good_price;
+      //临期商品总价
+      if(orders[i].sel&&orders[i].good_type=='1'){
+        total1 += orders[i].num * orders[i].good_price;
+      }else{
+        total2 += orders[i].num * orders[i].good_price;
       }
     }
     this.setData({
-      total: total.toFixed(2)
+      total1: total1.toFixed(2),
+      total2: total2.toFixed(2),
     })
+    
   },
   
   // 获取用户openid

@@ -70,21 +70,27 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 95rpx;
+    height: 150rpx;
     line-height: 95rpx;
     border-top: 1rpx solid #ededed;
 }
 .orders-footer .orders-footer-total{
-    display: inline-block;
-    width: 510rpx;
+    float: left;
+    width: 60%;
     padding-left: 30rpx;
     box-sizing: border-box;
     color: #a55350;
+    font-size: 50rpx;
+    line-height: 50rpx;
+    padding-top: 30rpx;
 }
 .orders-footer .orders-footer-btn{
-    display: inline-block;
-    width: 240rpx;
+  float:left;
+  line-height:150rpx;
+    width: 40%;
     text-align: center;
     color: #fff;
     background: rgb(248, 188, 76);
+    height:150rpx;
+
 }

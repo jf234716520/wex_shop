@@ -10,7 +10,7 @@ Page({
     openid: '',
     adiminArr: [
       '',
-      'oA9Ke4tObqwxqNSfALdVZPkVv7Yc',
+      'oqt-H5MP6rdZqLlR1wXj_IUlBCmg',
       'oA9Ke4rH2nnqFgFbWIhyQu5bCXPA'
     ]
   },
@@ -53,17 +53,17 @@ Page({
     wx.cloud.callFunction({
       name: 'add',
       complete: res => {
-        console.log('云函数获取到的openid: ', res.result.openId)
         var openid = res.result.openId;
         var isAdmin = null;
         that.setData({
           openid: openid,
           isAdmin: that.data.adiminArr.indexOf(openid)
         })
-        app.getInfoWhere('order_master',{
+        console.log(openid)
+        app.getInfoWhere('order_manage',{
           openid: openid
         },e=>{
-          console.log(e.data)
+          
           var tmp = []
           var len = e.data.length
           for (var i = 0; i < len;i++){
@@ -72,6 +72,7 @@ Page({
           that.setData({
             orders: tmp
           })
+          
         })
       }
     })

@@ -58,9 +58,9 @@ Page({
       content: '确认订单已完成？',
       success(res) {
         if (res.confirm) {
-          app.updateInfo('order_manage', e.currentTarget.id, {
+          app.updateDB('order_manage', e.currentTarget.id, {
             'isFinished': '1',
-            'sendingTime': app.CurrentTime_show()
+            'finishedTime': app.CurrentTime_show()
           }, e => {
             that.getAllList()
           })
@@ -74,21 +74,17 @@ Page({
   // 获取所有订单信息
   getAllList:function(){
     var that = this
-    /*app.getInfoByOrder('order_master', 'orderTime', 'asc', e => {
-      that.setData({
-        orderList: e.data
-      })
-      console.log(e.data)
-    })*/
+   
     app.getInfoWhereInOrder('order_manage', { 'isFinished': '0' }, 'orderTime', 'desc', e => {
+      console.log(e)
       that.setData({
-        sendingList: e.data
+        sendingList: e.result.data
       })
     })
     app.getInfoWhereInOrder('order_manage', {'isFinished':'1'},'orderTime', 'asc', e => {
       console.log(e)
       that.setData({
-        orderList: e.data
+        orderList: e.result.data
       })
     })
   },
