@@ -17,6 +17,7 @@ Page({
 
     // 上传的信息
     fruitID:null, //水果编号
+    type:0, //商品类别，1为非临期
     name:null,    //水果名称
     price:null,   //价格
     unit:null,    //单位
@@ -29,7 +30,7 @@ Page({
       '否',
       '是'
     ],
-    recommend_Arr: [
+    myType_Arr: [
       '否',
       '是'
     ],
@@ -111,11 +112,11 @@ Page({
     })
   },
 
-  // 店主推荐
-  getRecommend: function (e) {
+  // 类型
+  getMyType: function (e) {
     var that = this
     this.setData({
-      recommend: e.detail.value.toString()
+      type: e.detail.value.toString()
     })
   },
 
