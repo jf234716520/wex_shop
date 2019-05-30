@@ -43,7 +43,7 @@ Component({
         });
         return;
       };
-      app.getInfoWhere('goods_list', { good_name : myWord },
+      app.getInfoWhere('goods_list', { good_name : myWord, good_type : "2"},
         e => {
           if (e.data.length <= 0){
             wx.showToast({
