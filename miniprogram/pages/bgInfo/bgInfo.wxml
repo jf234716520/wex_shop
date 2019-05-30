@@ -90,7 +90,7 @@
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__bd cell-title">临期商品</view>
     <view class="weui-cell__ft">
-      <picker range="{{myType_Arr}}" value="{{myType}}" bindchange="getMyType">
+      <picker range="{{myType_Arr}}" value="{{good_type}}" bindchange="getMyType">
         <view class="weui-input">{{myType_Arr[myType]||'否'}}</view>
       </picker>
     </view>
@@ -143,11 +143,11 @@
 
 </view>
 
-<!---------- 优惠信息 ------------->
-<view class="weui-cells__title">优惠信息</view>
-
+<!---------- 优惠信息 
+<view class="weui-cells__title">优惠信息</view>------------->
+<!-- 今日特惠
 <view class="weui-cells weui-cells_after-title">
-  <!-- 今日特惠 -->
+  
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__bd cell-title">今日特惠</view>
     <view class="weui-cell__ft">
@@ -157,7 +157,7 @@
     </view>
   </view>
  
-</view>
+</view> -->
 
 
 <!---------- 按钮 ------------->

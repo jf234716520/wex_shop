@@ -16,15 +16,15 @@ Page({
     manageList:[], //管理页面信息列表
 
     // 上传的信息
-    fruitID:null, //水果编号
-    type:0, //商品类别，1为非临期
-    name:null,    //水果名称
-    price:null,   //价格
-    unit:null,    //单位
-    detail:"",    //描述
-    myClass:0,    //今日特惠
-    recommend:0,  //店主推荐
-    onShow:true,  //上架
+    fruitID:null, 
+    create_time:'', 
+    good_img:[],    
+    good_name:null,   
+    good_price:null,    
+    good_type:"",    
+    good_unit:'',    
+    is_show:1,  
+    remark:'',  
 
     myClass_Arr: [
       '否',
@@ -48,21 +48,21 @@ Page({
   // 获取水果名称
   getName: function (e) {
     this.setData({
-      name: e.detail.value
+      good_name: e.detail.value
     })
   },
 
   // 获取价格
   getPrice: function (e) {
     this.setData({
-      price: e.detail.value
+      good_price: e.detail.value
     })
   },
 
   // 获取单位
   getUnit: function (e) {
     this.setData({
-      unit: e.detail.value
+      good_unit: e.detail.value
     })
   },
 
@@ -101,7 +101,7 @@ Page({
     that.setData({
 
     })
-    this.data.detail = e.detail.value;
+    this.data.remark = e.detail.value;
   },
 
   // 今日特惠
@@ -115,8 +115,9 @@ Page({
   // 类型
   getMyType: function (e) {
     var that = this
+    console.log(e)
     this.setData({
-      type: e.detail.value.toString()
+      good_type: e.detail.value
     })
   },
 
@@ -145,22 +146,22 @@ Page({
   // 添加水果信息表单
   addFruitInfo: function(e){
     const that = this
-    if (that.data.name && that.data.price){
+    if (that.data.good_name && that.data.good_price){
       new Promise((resolve, reject) => {
-        const { fruitID, name, price, unit, detail, myClass, recommend, tmpUrlArr, onShow } = that.data
-        const theInfo = { fruitID, name, price, unit, detail, myClass, recommend, tmpUrlArr, onShow }
-        theInfo['imgUrl'] = that.data.tmpUrlArr[0]
-        theInfo['time'] = parseInt(app.CurrentTime())
+        const { create_time, good_img, good_name, good_price, good_type, good_unit, is_show, remark } = that.data
+        const theInfo = { create_time, good_img, good_name, good_price, good_type, good_unit, is_show, remark }
+        theInfo['good_img'] = that.data.tmpUrlArr[0]
+        theInfo['create_time'] = parseInt(app.CurrentTime())
         resolve(theInfo)
       }).then(theInfo => {
         // 上传所有信息
-        app.addRowToSet('fruit-board', theInfo, e => {
+        app.addRowToSet('goods_list', theInfo, e => {
           console.log(e)
           wx.showToast({
             title: '添加成功',
           })
         })
-        app.getInfoByOrder('fruit-board', 'time', 'desc',
+        app.getInfoByOrder('goods_list', 'create_time', 'desc',
           e => {
             that.setData({
               manageList: e.data
@@ -263,7 +264,7 @@ Page({
   },
 
   onLoad: function (options) {
-    this.getManageList()
+    //this.getManageList()
   },
 
   /**
@@ -277,7 +278,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getManageList()
+    //this.getManageList()
   },
 
   /**
