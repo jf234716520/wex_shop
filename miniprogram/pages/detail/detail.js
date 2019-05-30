@@ -30,11 +30,6 @@ Page({
       })
       wx.hideLoading()
     });
-    app.getInfoWhereInOrder("cart", { 'openid': app.globalData.openid }, 'openid', 'asc', function (e) {
-      that.setData({
-        cart: e.result.data[0]
-      })
-    })
   
   },
 
@@ -133,32 +128,31 @@ Page({
 
   // 添加购物车
   toCart: function () {
-    var that = this
-    
+    var that = this;
     //遍历
-    var isRepete=false;
-    that.data.cart.good.forEach(function (v) {
-        if (v.good_id == that.data.articleID){
-          isRepete=true;
-        }
+    var isRepete = false;
+    app.globalData.carts.forEach(function (v) {
+      if (v._id == that.data.articleID) {
+        isRepete = true;
+      }
     });
-    if (isRepete){
+    if (isRepete) {
       wx.showToast({
         title: '已经添加过了~',
       })
-    }else{
-      that.data.cart.good.push({
-        "good_id":that.data.articleID,
-        "num": that.data.popCartCount
-      });
-      delete (that.data.cart._id);
-      app.updateDB("cart", that.data.cart._id, that.data.cart, function (e) {
-        wx.showToast({
-          title: '已添加至购物车',
-        });
-        that.setData({
-          popUpHidden: true
-        });
+    } else {
+      var goodList = app.globalData.goodList;
+      goodList.forEach(function (v) {
+        if (v._id == that.data.articleID) {
+          var good = v;
+          good.num = that.data.popCartCount;
+          good.sel = false;
+          app.globalData.carts.push(good);
+          wx.showToast({
+            title: '已添加至购物车',
+          });
+          return;
+        }
       })
     }
   },
