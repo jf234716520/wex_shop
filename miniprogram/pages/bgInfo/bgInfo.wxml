@@ -90,8 +90,8 @@
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__bd cell-title">临期商品</view>
     <view class="weui-cell__ft">
-      <picker range="{{myType_Arr}}" value="{{good_type}}" bindchange="getMyType">
-        <view class="weui-input">{{myType_Arr[myType]||'否'}}</view>
+      <picker range="{{myType_Arr}}" value="{{good_type_s}}" bindchange="getMyType">
+        <view class="weui-input">{{myType_Arr[good_type_s]||'否'}}</view>
       </picker>
     </view>
   </view>
@@ -135,7 +135,7 @@
   <view class="weui-cell">
     <view class="weui-uploader__hd">
       <view class="section">
-        <textarea bindblur="getInfoText" auto-height placeholder="介绍商品的详细信息" style="min-height: 250rpx;"  />
+        <textarea bindinput="getInfoText" auto-height placeholder="介绍商品的详细信息" style="min-height: 250rpx;"  />
       </view>
     </view>
   </view>

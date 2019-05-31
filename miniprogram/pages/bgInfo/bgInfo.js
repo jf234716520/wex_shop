@@ -17,11 +17,12 @@ Page({
 
     // 上传的信息
     fruitID:null, 
+    good_type_s:0,
     create_time:'', 
     good_img:[],    
     good_name:null,   
     good_price:null,    
-    good_type:"",    
+    good_type:1,    
     good_unit:'',    
     is_show:1,  
     remark:'',  
@@ -31,8 +32,8 @@ Page({
       '是'
     ],
     myType_Arr: [
-      '否',
-      '是'
+      '是',
+      '否'
     ],
     reFresh:null
   },
@@ -99,9 +100,9 @@ Page({
   getInfoText: function (e) {
     var that = this
     that.setData({
-
+      remark : e.detail.value
     })
-    this.data.remark = e.detail.value;
+    
   },
 
   // 今日特惠
@@ -115,9 +116,11 @@ Page({
   // 类型
   getMyType: function (e) {
     var that = this
-    console.log(e)
     this.setData({
-      good_type: e.detail.value
+      good_type_s: e.detail.value
+    })
+    this.setData({
+      good_type: (Number(that.data.good_type_s)+1)+''
     })
   },
 
@@ -155,6 +158,7 @@ Page({
         resolve(theInfo)
       }).then(theInfo => {
         // 上传所有信息
+        console.log(theInfo);
         app.addRowToSet('goods_list', theInfo, e => {
           console.log(e)
           wx.showToast({
