@@ -22,9 +22,9 @@ Page({
     good_img:[],    
     good_name:null,   
     good_price:null,    
-    good_type:1,    
+    good_type:'1',    
     good_unit:'',    
-    is_show:1,  
+    is_show:'1',  
     remark:'',  
 
     myClass_Arr: [
@@ -75,13 +75,16 @@ Page({
         that.setData({
           files: that.data.files.concat(res.tempFilePaths)
         });
-        
-        app.upToClound("imgSwiper", that.data.name + Math.random().toString(), 
-        res.tempFilePaths["0"], tmpUrl => {
-          // console.log(tmpUrl)
-          that.data.tmpUrlArr.push(tmpUrl)
-          // console.log(getCurrentPages())
+        res.tempFilePaths.forEach(function(v){
+          app.upToClound("imgSwiper", that.data.
+            name + Math.random().toString(),
+            v, tmpUrl => {
+              console.log(tmpUrl)
+              that.data.good_img.push(tmpUrl)
+              // console.log(getCurrentPages())
+          })
         })
+        
       }
     })
     // console.log(getCurrentPages())
@@ -90,9 +93,10 @@ Page({
   //预览图片
   previewImage: function (e) {
     var that = this
+    console.log(e)
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: that.data.tmpUrlArr // 需要预览的图片http链接列表
+      urls: that.data.good_img // 需要预览的图片http链接列表
     })
   },
 
@@ -123,7 +127,6 @@ Page({
       good_type: (Number(that.data.good_type_s)+1)+''
     })
   },
-
   // --------------------!!!  选项卡切换  !!!----------------------
   tapTo1: function() {  //添加
     var that = this
@@ -153,7 +156,6 @@ Page({
       new Promise((resolve, reject) => {
         const { create_time, good_img, good_name, good_price, good_type, good_unit, is_show, remark } = that.data
         const theInfo = { create_time, good_img, good_name, good_price, good_type, good_unit, is_show, remark }
-        theInfo['good_img'] = that.data.tmpUrlArr[0]
         theInfo['create_time'] = parseInt(app.CurrentTime())
         resolve(theInfo)
       }).then(theInfo => {

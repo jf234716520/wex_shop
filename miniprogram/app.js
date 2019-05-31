@@ -271,6 +271,7 @@ App({
         wx.showToast({
           title: '图片已上传',
         })
+        console.log(res)
         fileIDCallback(res.fileID)
 
       },

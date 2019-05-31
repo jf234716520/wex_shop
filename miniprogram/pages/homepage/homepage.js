@@ -137,7 +137,7 @@ Page({
         break;
     }
   },
-
+  
 
   // ---------点击跳转至详情页面-------------
   tapToDetail: function (e) {

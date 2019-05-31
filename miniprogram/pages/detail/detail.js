@@ -28,6 +28,7 @@ Page({
         goodDetail: e.result.data[0],
         isShow: true
       })
+      console.log(that.data.goodDetail.good_img)
       wx.hideLoading()
     });
   
