@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fruitInfo: {},
+    goodInfo: [],
     tmpUrlArr: [],
     delFruitId: "",
     cardNum: 1,
@@ -226,14 +226,13 @@ Page({
   },
 
   // 删除水果
-  deleteFruit: function() {
-    // app.deleteInfoFromSet('fruit-board',"葡萄")
+  deleteFruit: function(d) {
+    
     var that = this
-    console.log(that.data.delFruitId)
-    new Promise((resolve,reject)=>{
-      app.deleteInfoFromSet('fruit-board', that.data.delFruitId)
+    app.updateDB('goods_list', d.currentTarget.dataset.id,{"is_show":"0"},function(e){
+        console.log(e)
     })
-    .then(that.getManageList())
+   
   },
 
   // 程序下线打烊
@@ -259,18 +258,17 @@ Page({
    * ----------------------!!!  生命周期函数--监听页面加载  !!!----------------------
    */
   getManageList:function(){
-    var that = this
-    app.getInfoByOrder('fruit-board', 'time', 'desc',
-      e => {
-        that.setData({
-          manageList: e.data
-        })
-      }
-    )
+    var that = this 
+    app.getInfoWhereInOrder('goods_list', {"is_show": "1" }, 'create_time', 'asc', function (e) {
+      that.setData({
+        goodInfo: e.result.data
+      })
+      wx.hideLoading()
+    })
   },
 
   onLoad: function (options) {
-    //this.getManageList()
+    this.getManageList()
   },
 
   /**
