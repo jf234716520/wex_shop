@@ -12,9 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
-	"appid": "wx0dd2df9f0ead0c3e",
-	"projectname": "miniprogram-test-3",
+	"libVersion": "2.7.1",
+	"appid": "wx03e733311b1c2bc9",
+	"projectname": "prego",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

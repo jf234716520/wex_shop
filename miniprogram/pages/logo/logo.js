@@ -64,6 +64,7 @@ Page({
   //初始化商品
   initGoods(){
     app.getInfoWhereInOrder('goods_list', {"is_show": "1" }, 'create_time', 'asc', function (e) {
+      console.log(e)
       app.globalData.goodList = e.result.data;
     })
   },

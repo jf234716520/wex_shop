@@ -6,21 +6,21 @@ App({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: 'test-01-gd615',
+        env: 'prego-cloud',
         traceUser: true,
       })
     }
 
     this.globalData = {
       openid:'',
-      cloudRoot : "clo140d-voyz-cloud-86f82a/",
+      cloudRoot : "prego/",
       carts:[],  //购物车
       goodList:[],
       tmpNum: 0,
       tempFilePaths: "",
       admin:["preGo"],
       openId: null,
-      appid: 'wx0dd8c5c9ebe90a78',
+      appid: 'wx03e733311b1c2bc9',
       mch_id: '1519277861',
       apikey: 'James487493259359826923695832443',
       offLine:false,

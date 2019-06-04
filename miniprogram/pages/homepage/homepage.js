@@ -29,18 +29,19 @@ Page({
     that.setData({
       isShow: false
     })
+    
   },
 
   onShow: function () {
     var that = this;
-    app.getInfoWhereInOrder('goods_list', { "good_type": "1","is_show":"1" }, 'create_time', 'asc',function(e){
+
+    app.getInfoWhereInOrder('goods_list', { "good_type": "1", "is_show": "1" }, 'create_time', 'asc', function (e) {
       that.setData({
         goodInfo: e.result.data,
         isShow: true
       })
       wx.hideLoading()
     })
-    
     // 是否下线
     app.getInfoWhere('setting', { "option": "offLine" },
       e => {

@@ -90,6 +90,12 @@ Page({
     wx.navigateTo({
       url: '/pages/bgManage/bgManage',
     })
+  },
+
+  goToUserInfo: function(){
+    wx.navigateTo({
+      url: '/pages/userInfo/userInfo',
+    })
   }
 
 })

@@ -1,5 +1,5 @@
 <view class="main">
-    <view class="header">
+    <view class="header" bindtap='goToUserInfo'>
         <!-- <image src="{{thumb}}" class="thumb"></image> -->
         <view class="thumb">
           <open-data type="userAvatarUrl"></open-data>

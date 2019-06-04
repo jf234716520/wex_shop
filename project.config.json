@@ -9,9 +9,9 @@
 		"newFeature": true,
 		"nodeModules": true
 	},
-	"appid": "wx0dd2df9f0ead0c3e",
-	"projectname": "fruit-store",
-	"libVersion": "2.6.6",
+	"appid": "wx03e733311b1c2bc9",
+	"projectname": "PreGO",
+	"libVersion": "2.7.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"compileType": "miniprogram",
