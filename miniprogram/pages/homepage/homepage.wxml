@@ -23,11 +23,11 @@
   <view class='extra'></view>
   <view class='fruit-container'>
     <!-- 水果信息卡片 -->
-    <block wx:for="{{goodInfo}}" wx:key='fruitID'>
+    <block wx:for="{{goodInfo}}" wx:key='id'>
       <view class='fruit-item' bindtap='tapToDetail' data-fID="{{item._id}}">
         <!-- 图片 -->
         <view class='fruit-image'>
-          <image src='{{item.good_img[0]}}' mode='aspectFill'></image>
+          <image src="{{item.good_img[0]}}" mode='aspectFill'></image>
         </view>
         <!-- 其他信息 -->
         <view class='fruit-info'>
