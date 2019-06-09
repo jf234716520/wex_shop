@@ -2,6 +2,7 @@ Page({
   data: {
     address: {
     name: '',
+    school:'',
     phone: '',
     addressd:'',
     remark:''   

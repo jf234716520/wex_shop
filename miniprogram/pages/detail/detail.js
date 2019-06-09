@@ -148,7 +148,10 @@ Page({
           var good = v;
           good.num = that.data.popCartCount;
           good.sel = false;
-          app.globalData.carts.push(good);
+          if(good.good_type=='2')
+          app.globalData.carts2.push(good);
+          else
+            app.globalData.carts.push(good);
           wx.showToast({
             title: '已添加至购物车',
           });

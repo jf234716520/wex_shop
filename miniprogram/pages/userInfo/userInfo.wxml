@@ -3,15 +3,7 @@
         <form bindsubmit="formSubmit">
             <input value="{{address.name}}" name="name" placeholder="姓名"/>
             <input type="digit" name="phone" value="{{address.phone}}" placeholder="电话号码"/>
-            <view class="weui-cell__bd cell-title">详细地址：</view>
-            <view class='message'>
-              <textarea name="addressd" value="{{address.addressd}}"></textarea>
-            </view>
-
-            <view>备注：</view>
-            <view class='message'>
-              <textarea name="remark" value="{{address.remark}}"></textarea>
-            </view>
+            <input value="{{address.school}}" name="school" placeholder="学校"/>
             <button form-type="submit">保存</button>
         </form>
     </view>

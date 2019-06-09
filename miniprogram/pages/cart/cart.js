@@ -3,9 +3,13 @@ const app = getApp()
 
 Page({
   data: {
+    currentTab:0,
     cart:[],
+    cart2:[],
     hasList: false,          // 列表是否有数据
+    hasList2:false,
     totalPrice: 0,           // 总价，初始为0
+    totalPrice2: 0,
   },
 
   onLoad(e) {
@@ -17,9 +21,17 @@ Page({
     this.setData({
       cart: app.globalData.carts
     })
+    this.setData({
+      cart2: app.globalData.carts2
+    })
     if (this.data.cart.length!=0){
       this.setData({
         hasList: true
+      })
+    }
+    if (this.data.cart2.length != 0) {
+      this.setData({
+        hasList2: true
       })
     }
   },
@@ -39,6 +51,18 @@ Page({
     });
     
     this.getTotalPrice();
+  },
+  selectList2(e) {
+    var self = this
+    const index = e.currentTarget.dataset.index;
+    let cart2 = app.globalData.carts2;
+    const selected = cart2[index].sel;
+    cart2[index].sel = !selected;
+    this.setData({
+      cart2: cart2
+    });
+
+    this.getTotalPrice2();
   },
 
   /**
@@ -146,6 +170,34 @@ Page({
     });
       
   },
+  getTotalPrice2() {
+    let good = app.globalData.carts2;                // 获取购物车列表
+    let total = 0;
+    for (let i = 0; i < good.length; i++) {         // 循环列表得到每个数据
+      if (good[i].num == 0) {
+        good[i].sel = false;
+      }
+      if (good[i].sel) {                     // 判断选中才会计算价格
+        total += good[i].num * good[i].good_price;   // 所有价格加起来
+      }
+    }
+    this.setData({                                // 最后赋值到data中渲染到页面
+      cart2: good,
+      totalPrice: total.toFixed(1)
+    });
+
+  },
+  clickTab: function (e) {
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current,
+      })
+    }
+  }
+
   
 
 })
