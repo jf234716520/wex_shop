@@ -1,35 +1,20 @@
 Page({
   data: {
-    address: {
+    userInfo: {
       name: '',
       phone: '',
-      addressd: '',
-      remark: ''
-    },
-
-    school: 0,
-    school_Arr: [
-      "交大",
-      "华师大"
-    ],
-
-    // address: 0,
-    address_Arr: [
-      "宿舍楼", "学院", "图书馆", "餐厅", "教学楼", "其他"
-    ],
-
-    // apartment:0,
-    // apartment_Arr:[0,1,2,3]
-
+      school: '',
+      confirmImage: ''
+    }
   },
 
   onLoad() {
     var self = this;
     wx.getStorage({
-      key: 'address',
+      key: 'userInfo',
       success: function (res) {
         self.setData({
-          address: res.data
+          userInfo: res.data
         })
       }
     })

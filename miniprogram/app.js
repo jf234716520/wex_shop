@@ -14,7 +14,8 @@ App({
     this.globalData = {
       openid:'',
       cloudRoot : "prego/",
-      carts:[],  //购物车
+      carts:[],  //购物车1
+      carts2:[],
       goodList:[],
       tmpNum: 0,
       tempFilePaths: "",

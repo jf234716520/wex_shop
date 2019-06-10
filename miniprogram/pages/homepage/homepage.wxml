@@ -27,7 +27,7 @@
       <view class='fruit-item' bindtap='tapToDetail' data-fID="{{item._id}}">
         <!-- 图片 -->
         <view class='fruit-image'>
-          <image src='cloud://test-01-gd615.7465-test-01-gd615-1259214188/imgSwiper/undefined0.2516209131614566.jpg' mode='aspectFill'></image>
+          <image src="{{item.good_img[0]}}" mode='aspectFill'></image>
         </view>
         <!-- 其他信息 -->
         <view class='fruit-info'>

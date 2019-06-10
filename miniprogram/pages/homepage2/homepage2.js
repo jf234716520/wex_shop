@@ -95,20 +95,36 @@ Page({
 
   // ------------加入购物车------------
   addCartByHome: function (e) {
-    // console.log(e.currentTarget.dataset._id)
-    var self = this
-    let newItem = {}
-    app.getInfoWhere('goods_list', { _id: e.currentTarget.dataset._id },
-      e => {
+    var that = this
 
-        var newCartItem = e.data["0"]
-        newCartItem.num = 1
-        app.isNotRepeteToCart(newCartItem)
-        wx.showToast({
-          title: '已添加至购物车',
-        })
+    //遍历
+    var isRepete = false;
+    app.globalData.carts.forEach(function (v) {
+      console.log(v);
+      console.log(e.currentTarget.dataset._id);
+      if (v._id == e.currentTarget.dataset._id) {
+        isRepete = true;
       }
-    )
+    });
+    if (isRepete) {
+      wx.showToast({
+        title: '已经添加过了~',
+      })
+    } else {
+      var goodList = app.globalData.goodList;
+      goodList.forEach(function (v) {
+        if (v._id == e.currentTarget.dataset._id) {
+          var good = v;
+          good.num = 1;
+          good.sel = false;
+          app.globalData.carts2.push(good);
+          wx.showToast({
+            title: '已添加至购物车',
+          });
+          return;
+        }
+      })
+    }
   },
 
 
