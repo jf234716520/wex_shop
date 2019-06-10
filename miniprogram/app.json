@@ -15,16 +15,16 @@
     "pages/userInfo/userInfo"
   ],
   "window": {
-    "backgroundColor": "#F0F0F0",
+    "backgroundColor": "#9bc1bc",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FFF5EE",
+    "navigationBarBackgroundColor": "#9bc1bc",
     "navigationBarTitleText": "霹雳购",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "selectedColor": "#EEAD0E",
     "color": "#878787",
-    "backgroundColor": "#FFF5EE",
+    "backgroundColor": "#9bc1bc",
     "list": [
       {
         "pagePath": "pages/homepage/homepage",

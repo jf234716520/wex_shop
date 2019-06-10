@@ -9,7 +9,7 @@ Page({
     isAdmin: -1,
     openid: '',
     adiminArr: [
-      '',
+      'oO0KL5WAb-qZAYCh7vMIOm4h1N3k',
       'oqt-H5MP6rdZqLlR1wXj_IUlBCmg',
       'oA9Ke4rH2nnqFgFbWIhyQu5bCXPA'
     ]
