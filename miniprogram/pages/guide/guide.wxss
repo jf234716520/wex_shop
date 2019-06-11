@@ -1,0 +1,46 @@
+/* miniprogram/pages/guide/guide.wxss */
+.lq-view{
+  width: 50%;
+  height: 100px;
+  margin: 50px auto;
+  text-align: center;
+  line-height: 100px;
+  background-color: #9bc1bc;
+}
+.xy-view{
+  width: 50%;
+  height: 100px;
+  margin: 50px auto;
+  text-align: center;
+  line-height: 100px;
+  background-color: #9bc1bc;
+}
+.bottom-left{
+  width: 20%;
+  height:40px;
+  width: 25%;
+  left: 5px;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  background-color: #9bc1bc;
+}
+.bottom-right{
+  position: absolute;
+  right: 5px;
+  top:0;
+  text-align: center;
+  width: 25%;
+  height:40px;
+  line-height: 40px;
+  background-color: #9bc1bc;
+}
+
+.footer{
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+}

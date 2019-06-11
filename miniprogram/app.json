@@ -12,7 +12,9 @@
     "pages/pay/pay",
     "pages/address/address",
     "pages/orders/orders",
-    "pages/userInfo/userInfo"
+    "pages/userInfo/userInfo",
+    "pages/guide/guide",
+    "pages/register/register"
   ],
   "window": {
     "backgroundColor": "#9bc1bc",

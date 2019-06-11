@@ -48,16 +48,16 @@ Page({
           //未注册
           if (e.data.length==0){
             wx.navigateTo({
-              url: '../register/register',
+              url: '../guide/guide',
             })
           }
           wx.switchTab({
-            url: '../homepage/homepage',
+            url: '../guide/guide',
           })
           
         }
       ) 
-    }, 5000)
+    }, 2000)
     
   },
 
