@@ -8,7 +8,7 @@
 </view>
 
 <view class="footer">
-  <view class="bottom-left">
+  <view class="bottom-left" bindtap='showVideo'>
   了解
   </view>
   <view class="bottom-right" bindtap='toRegister'>

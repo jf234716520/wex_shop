@@ -1,0 +1,4 @@
+<!--miniprogram/pages/guide/play.wxml-->
+<view  style="display:flex;justify-content: center;">
+<video autoplay='true' src='cloud://prego-cloud.7072-prego-cloud-1259362637/0605_1.mov' ></video>
+</view>

@@ -1,4 +1,4 @@
-// miniprogram/pages/guide/guide.js
+// miniprogram/pages/guide/play.js
 Page({
 
   /**
@@ -62,27 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  toHomePage2(){
-    wx.switchTab({
-      url: '../homepage/homepage',
-    })
-  },
-
-  toHomePage1() {
-    wx.switchTab({
-      url: '../homepage2/homepage2',
-    })
-  },
-  toRegister(){
-    wx.navigateTo({
-      url: '../register/register',
-    })
-  },
-    showVideo() {
-    wx.navigateTo({
-      url: './play',
-    })
   }
 })

@@ -14,7 +14,8 @@
     "pages/orders/orders",
     "pages/userInfo/userInfo",
     "pages/guide/guide",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/guide/play"
   ],
   "window": {
     "backgroundColor": "#9bc1bc",
