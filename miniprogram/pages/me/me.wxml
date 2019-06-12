@@ -1,12 +1,13 @@
 <view class="main">
-    <view class="header" bindtap='goToUserInfo'>
+    <view class="header" >
         <!-- <image src="{{thumb}}" class="thumb"></image> -->
-        <view class="thumb">
+        <view class="thumb" bindtap='goToUserInfo'>
           <open-data type="userAvatarUrl"></open-data>
         </view>
         <view class='nickname'>
           <open-data type="userNickName"></open-data>
         </view>
+        <view class="xypay"  bindtap='applyXy'>我的额度：￥{{userInfo.xypay}}</view>
         <!-- <text class="nickname">{{nickname}}</text> -->
     </view>
 

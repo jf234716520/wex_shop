@@ -4,6 +4,8 @@ const app = getApp();
 Page({
   data: {
     orders: [],
+    userInfo:{},
+    needXy:false,
     hasAddress: false,
     address: {},
     isAdmin: -1,
@@ -16,11 +18,11 @@ Page({
   },
   onLoad() {
     var that = this;
-    that.getOpenidAndOrders();
-    // console.log(that.data)
   },
 
   onShow() {
+    this.getOpenidAndOrders();
+    
     var self = this;
     // console.log(self.data)
     /**
@@ -59,7 +61,7 @@ Page({
           openid: openid,
           isAdmin: that.data.adiminArr.indexOf(openid)
         })
-        console.log(openid)
+        this.getUserInfo();
         app.getInfoWhere('order_manage',{
           openid: openid
         },e=>{
@@ -77,8 +79,26 @@ Page({
       }
     })
   },
+  //获取用户注册信息
+  getUserInfo:function(){
+    var that = this;
+    var openid = that.data.openid;
 
-  
+    app.getInfoWhereInOrder('customers', { "openid": openid  }, 'openid', 'asc', function (e)    {
+      if (e.result.data[0].xypay!=-1){
+        that.setData({
+          userInfo: e.result.data[0],
+          needXy:false
+        })
+      }else{
+        that.setData({
+          userInfo: e.result.data[0],
+          needXy: true
+        })
+      }
+      
+    })
+  },
 
   goToBgInfo: function() {
     wx.navigateTo({
@@ -96,6 +116,14 @@ Page({
     wx.navigateTo({
       url: '/pages/userInfo/userInfo',
     })
+  },
+  //申请额度
+  applyXy:function(){
+    console.log(this.data.needXy)
+    if(this.data.needXy){
+      wx.navigateTo({
+        url: '/pages/applyXy/applyXy',
+      })
+    }
   }
-
 })
