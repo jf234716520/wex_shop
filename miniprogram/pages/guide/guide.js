@@ -66,13 +66,13 @@ Page({
 
   toHomePage2(){
     wx.switchTab({
-      url: '../homepage/homepage',
+      url: '../homepage2/homepage2',
     })
   },
 
   toHomePage1() {
     wx.switchTab({
-      url: '../homepage2/homepage2',
+      url: '../homepage/homepage',
     })
   },
   toRegister(){
