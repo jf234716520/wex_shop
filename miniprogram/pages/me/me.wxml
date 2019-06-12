@@ -1,7 +1,7 @@
 <view class="main">
     <view class="header" >
         <!-- <image src="{{thumb}}" class="thumb"></image> -->
-        <view class="thumb" bindtap='goToUserInfo'>
+        <view class="thumb">
           <open-data type="userAvatarUrl"></open-data>
         </view>
         <view class='nickname'>

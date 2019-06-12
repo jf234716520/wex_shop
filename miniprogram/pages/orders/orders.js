@@ -55,15 +55,14 @@ Page({
   // onReady↑
 
   onShow: function () {
-    const self = this;
-    wx.getStorage({
-      key: 'address',
-      success(res) {
-        self.setData({
-          address: res.data,
-          hasAddress: true
-        })
-      }
+    var self = this;
+    var openid = app.globalData.openid;
+    app.getInfoWhereInOrder("customers", { "openid": openid }, "openid", "asc", function (e) {
+      console.log(e.result.data[0])
+      self.setData({
+        address: e.result.data[0],
+        hasAddress: true
+      })
     })
   },
 

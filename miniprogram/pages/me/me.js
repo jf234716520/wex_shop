@@ -24,18 +24,13 @@ Page({
     this.getOpenidAndOrders();
     
     var self = this;
-    // console.log(self.data)
-    /**
-     * 获取本地缓存 地址信息
-     */
-    wx.getStorage({
-      key: 'address',
-      success: function (res) {
-        self.setData({
-          hasAddress: true,
-          address: res.data
-        })
-      }
+    var openid = app.globalData.openid;
+    app.getInfoWhereInOrder("customers", { "openid": openid }, "openid", "asc", function (e) {
+      console.log(e.result.data[0])
+      self.setData({
+        address: e.result.data[0],
+        hasAddress:true
+      })
     })
   },
   onPullDownRefresh: function () {
@@ -119,7 +114,6 @@ Page({
   },
   //申请额度
   applyXy:function(){
-    console.log(this.data.needXy)
     if(this.data.needXy){
       wx.navigateTo({
         url: '/pages/applyXy/applyXy',

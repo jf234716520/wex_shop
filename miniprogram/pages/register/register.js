@@ -1,4 +1,5 @@
 // miniprogram/pages/register/register.js
+const app = getApp();
 Page({
 
   /**
@@ -62,5 +63,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+  formSubmit(e) {
+    const value = e.detail.value;
+    var openid = app.globalData.openid;
+    if (value.name && value.phone.length === 11 && value.addressd) {
+      value.openid = openid;
+      value.xypay=-1;
+      app.addRows("customers", value,function(e){
+        wx.navigateBack();
+      });
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请填写完整资料',
+        showCancel: false
+      })
+    }
   }
 })

@@ -34,7 +34,7 @@ Page({
   onShow: function () {
     let that = this;
     setTimeout(function () {
-      app.getInfoWhere('customers', { "openid": app.globalData.openid},
+      app.getInfoWhereInOrder('customers', { "openid": app.globalData.openid },"openid","asc",
         e => {
           //获取不到openId
           if(that.data.openid==''){
@@ -46,13 +46,13 @@ Page({
             return;
           }
           //未注册
-          if (e.data.length==0){
+          if (e.result.data.length==0){
             wx.navigateTo({
               url: '../guide/guide',
             })
           }
           wx.switchTab({
-            url: '../guide/guide',
+            url: '../homepage/homepage',
           })
           
         }
@@ -64,7 +64,6 @@ Page({
   //初始化商品
   initGoods(){
     app.getInfoWhereInOrder('goods_list', {"is_show": "1" }, 'create_time', 'asc', function (e) {
-      console.log(e)
       app.globalData.goodList = e.result.data;
     })
   },

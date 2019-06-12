@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     address: {
@@ -23,31 +24,26 @@ Page({
     // apartment_Arr:[0,1,2,3]
 
   },
-
   onLoad() {
-    var self = this;
-    wx.getStorage({
-      key: 'address',
-      success: function (res) {
-        self.setData({
-          address: res.data
-        })
-      }
-    })
+    
 
+  },
+  onShow(){
+    var self = this;
+    var openid = app.globalData.openid;
+    app.getInfoWhereInOrder("customers", { "openid": openid }, "openid", "asc", function (e) {
+      self.setData({
+        address: e.result.data[0]
+      })
+    })
   },
 
   formSubmit(e) {
     const value = e.detail.value;
-    // console.log(value)
     if (value.name && value.phone.length === 11 && value.addressd) {
-      wx.setStorage({
-        key: 'address',
-        data: value,
-        success() {
-          wx.navigateBack();
-        }
-      })
+      app.updateDB("customers", this.data.address._id, value, function (e) {
+        wx.navigateBack();
+      });
     } else {
       wx.showModal({
         title: '提示',
