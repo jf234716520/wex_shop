@@ -1,2 +1,4 @@
 <!--components/help/help.wxml-->
-<text>components/help/help.wxml</text>
+<view>
+<image src='../../images/common/wenhao.jpg' style="padding-bottom:0; width: 30rpx;height: 30rpx;background: rgba(128, 128, 128, 0);display: flex;" bindtap='showRule'></image>
+</view>

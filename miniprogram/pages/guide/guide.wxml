@@ -8,10 +8,12 @@
 </view>
 
 <view class="footer">
+<myHelp></myHelp>
   <view class="bottom-left" bindtap='showVideo'>
   了解
   </view>
   <view class="bottom-right" bindtap='toRegister'>
   注册
   </view>
+  
 </view>

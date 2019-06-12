@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "myHelp":"/components/help/help"
+  }
 }
