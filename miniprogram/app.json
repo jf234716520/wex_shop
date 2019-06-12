@@ -15,7 +15,8 @@
     "pages/userInfo/userInfo",
     "pages/guide/guide",
     "pages/register/register",
-    "pages/guide/play"
+    "pages/guide/play",
+    "pages/applyXy/applyXy"
   ],
   "window": {
     "backgroundColor": "#9bc1bc",
