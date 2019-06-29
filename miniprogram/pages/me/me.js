@@ -130,5 +130,9 @@ Page({
         url: '/pages/applyXy/applyXy',
       })
     }
+  },
+  //
+  goToXyApprove:function(){
+
   }
 })

@@ -45,16 +45,6 @@ Page({
             });
             return;
           }
-          //未注册
-          if (e.result.data.length==0){
-            wx.navigateTo({
-              url: '../guide/guide',
-            })
-          }
-          wx.switchTab({
-            url: '../homepage/homepage',
-          })
-          
         }
       ) 
     }, 2000)
@@ -85,6 +75,16 @@ Page({
             app.addRows("customers", { openid: app.globalData.openid ,xypay:[-1,0]},function(e2){
               console.log("欢迎使用小程序");
             })
+            
+            if (e.result.data.length == 0) {
+              wx.navigateTo({
+                url: '../guide/guide',
+              })
+            }else{
+              wx.switchTab({
+                url: '../homepage/homepage',
+              })
+            }
           }
         })
       }

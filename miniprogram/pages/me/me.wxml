@@ -18,6 +18,8 @@
     <!-- 订单管理 -->
     <view class="bgInfo {{openid}}" bindtap='goToBgManage' hidden="{{!(isAdmin >= 0)}}">订单管理</view>
 
+    <!-- 订单管理 -->
+    <view class="bgInfo {{openid}}" bindtap='goToXyApprove' hidden="{{!(isAdmin >= 0)}}">额度审批</view>
     <!-- 地址管理 -->
     <view class="address-box">
         <view class="address-manage">
