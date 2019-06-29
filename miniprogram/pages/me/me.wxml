@@ -23,9 +23,9 @@
             <navigator url="/pages/address/address">地址管理</navigator>
         </view>
         <view wx:if="{{hasAddress}}" class="address-list">
-            <view>姓名：{{address.name}}</view>
-            <view>电话：{{address.phone}}</view>
-            <view>地址：{{address.addressd}}</view>
+            <view>姓名：{{userInfo.name}}</view>
+            <view>电话：{{userInfo.phone}}</view>
+            <view>地址：{{userInfo.addressd}}</view>
         </view>
     </view>
 
