@@ -15,8 +15,7 @@ Page({
 
     //初始化商品信息
     this.initGoods();
-    //获取用户openid
-    this.getOpenid();
+    
    
   },
 
@@ -32,21 +31,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //获取用户openid
+    
     let that = this;
     setTimeout(function () {
-      app.getInfoWhereInOrder('customers', { "openid": app.globalData.openid },"openid","asc",
-        e => {
-          //获取不到openId
-          if(that.data.openid==''){
-            wx.showModal({
-              title: 'sorry',
-              content: '网络似乎不够快哦~',
-              showCancel:false
-            });
-            return;
-          }
-        }
-      ) 
+      that.getOpenid();
     }, 2000)
     
   },
@@ -80,11 +69,11 @@ Page({
               wx.navigateTo({
                 url: '../guide/guide',
               })
-            }else{
-              wx.switchTab({
-                url: '../homepage/homepage',
-              })
             }
+          } else {
+            wx.switchTab({
+              url: '../homepage/homepage',
+            })
           }
         })
       }
