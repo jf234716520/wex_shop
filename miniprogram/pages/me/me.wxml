@@ -6,8 +6,9 @@
         </view>
         <view class='nickname'>
           <open-data type="userNickName"></open-data>
+          <view class="xypay"  bindtap='applyXy'>我的额度：{{xypayShow}}</view>
         </view>
-        <view class="xypay"  bindtap='applyXy'>我的额度：{{xypayShow}}</view>
+        
         <!-- <text class="nickname">{{nickname}}</text> -->
     </view>
 

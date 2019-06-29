@@ -9,9 +9,10 @@
     color: rgb(138, 138, 138);
 }
 .xypay{
+  font-size: 10px;
   position: absolute;
-  right: 50rpx;
-  top: 30rpx;
+  left: 180rpx;
+  top: 80rpx;
 }
 .header .thumb{
     position: absolute;
