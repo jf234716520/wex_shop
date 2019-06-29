@@ -14,7 +14,8 @@ Page({
       'oO0KL5WAb-qZAYCh7vMIOm4h1N3k',
       'oqt-H5MP6rdZqLlR1wXj_IUlBCmg',
       'oA9Ke4rH2nnqFgFbWIhyQu5bCXPA'
-    ]
+    ],
+    xypayShow:"加载中"
   },
   onLoad() {
     var that = this;
@@ -70,7 +71,7 @@ Page({
     var openid = that.data.openid;
 
     app.getInfoWhereInOrder('customers', { "openid": openid  }, 'openid', 'asc', function (e)    {
-      if (e.result.data[0].xypay!=-1){
+      if (e.result.data[0].xypay[1] == 1 || (e.result.data[0].xypay[1] == 0 && e.result.data[0].xypay[0]!=-1)){
         that.setData({
           userInfo: e.result.data[0],
           needXy:false
@@ -79,6 +80,20 @@ Page({
         that.setData({
           userInfo: e.result.data[0],
           needXy: true
+        })
+      }
+      //用户额度显示
+      if (e.result.data[0].xypay[1] == 0 && e.result.data[0].xypay[0]==-1){
+        that.setData({
+          xypayShow: "点击申请额度"
+        })
+      } else if (e.result.data[0].xypay[1] == 0 && e.result.data[0].xypay[0]!=-1){
+        that.setData({
+          xypayShow: "等待审批"
+        })
+      } else if (e.result.data[0].xypay[1] == 1 ){
+        that.setData({
+          xypayShow: "￥" + xypay[0]
         })
       }
 
