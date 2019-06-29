@@ -76,7 +76,6 @@ Page({
   },
   //申请
   formSubmit(e) {
-   
     const value = e.detail.value;
     app.updateDB("customers", this.data.userInfo._id, { xypay: value.xypay},function(d){
       console.log(d)

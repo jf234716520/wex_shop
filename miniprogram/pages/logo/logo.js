@@ -15,7 +15,7 @@ Page({
 
     //初始化商品信息
     this.initGoods();
-    // 获取用户openid
+    //获取用户openid
     this.getOpenid();
    
   },
@@ -77,7 +77,16 @@ Page({
         console.log('云函数获取到的openid: ', res.result.openId)
         var openid = res.result.openId;
         app.globalData.openid = openid;
-
+        //判断用户是否初次使用小程序
+        app.getInfoWhereInOrder("customers", { "openid": openid }, "openid", "asc", function (e) {
+          //用户首次使用
+          if (e.result.data.length==0){
+            //customers表添加用户openid
+            app.addRows("customers", { openid: app.globalData.openid ,xypay:-1},function(e2){
+              console.log("欢迎使用小程序");
+            })
+          }
+        })
       }
     })
   },
