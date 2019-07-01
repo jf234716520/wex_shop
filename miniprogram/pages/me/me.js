@@ -71,7 +71,7 @@ Page({
     var openid = that.data.openid;
 
     app.getInfoWhereInOrder('customers', { "openid": openid  }, 'openid', 'asc', function (e)    {
-      if (e.result.data[0].xypay[1] == 1 || (e.result.data[0].xypay[1] == 0 && e.result.data[0].xypay[0]!=-1)){
+      if (e.result.data[0].xypay.status == 1 ){
         that.setData({
           userInfo: e.result.data[0],
           needXy:false
@@ -83,17 +83,17 @@ Page({
         })
       }
       //用户额度显示
-      if (e.result.data[0].xypay[1] == 0 && e.result.data[0].xypay[0]==-1){
+      if (e.result.data[0].xypay.status == -1 ){
         that.setData({
           xypayShow: "点击申请额度"
         })
-      } else if (e.result.data[0].xypay[1] == 0 && e.result.data[0].xypay[0]!=-1){
+      } else if (e.result.data[0].xypay.status == 0 ){
         that.setData({
           xypayShow: "等待审批"
         })
-      } else if (e.result.data[0].xypay[1] == 1 ){
+      } else if (e.result.data[0].xypay.status == 1 ){
         that.setData({
-          xypayShow: "￥" + xypay[0]
+          xypayShow: "￥" + xypay.amt
         })
       }
 
