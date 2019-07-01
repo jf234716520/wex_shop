@@ -1,8 +1,37 @@
 <view class="main">
     <view class="form-box">
         <form bindsubmit="formSubmit">
-            <input  name="xypay" placeholder="申请额度"/>
-            <button form-type="submit">保存</button>
+            <view class="weui-cell weui-cell_input divLine">
+              <view class="weui-cell__bd cell-title">请上传身份证、学生证照片</view>
+            </view>
+            <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{files}}" wx:key="*this">
+                  <view class="weui-uploader__file" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill"  />
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader">
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+         <view class="weui-cell weui-cell_input divLine">
+              <view class="weui-cell__bd cell-title">期望额度</view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd weui-cell__ft">
+              <input name="xypay"/>
+            </view>
+          </view>
+            <button form-type="submit">申请</button>
         </form>
     </view>
 

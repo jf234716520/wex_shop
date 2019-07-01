@@ -7,7 +7,9 @@ Page({
    */
   data: {
     userIfo:{},
-    openid:''
+    openid:'',
+    files:[],
+    tempFileArr:[]
   },
 
   /**
@@ -76,11 +78,43 @@ Page({
   },
   //申请
   formSubmit(e) {
+    var that = this;
     const value = e.detail.value;
-    app.updateDB("customers", this.data.userInfo._id, { xypay: [value.xypay,0]},function(d){
-      wx.navigateBack({
-        delta: 1
+    if (value.xypay && that.data.tempFileArr.length!=0){
+      app.updateDB("customers", this.data.userInfo._id, { xypay: [value.xypay, 0, that.data.tempFileArr]},function(d){
+        wx.showToast({
+          title: '添加成功',
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      });
+    }else{
+      wx.showToast({
+        title: '信息不完全',
       })
-    });
-  }
+    }
+  },
+  //选择照片并预览（预览地址在files，上传后的地址在tmpUrlArr）
+  chooseImage: function (e) {
+    var that = this;
+    wx.chooseImage({
+      success: function (res) {
+        that.setData({
+          files: that.data.files.concat(res.tempFilePaths)
+        });
+        res.tempFilePaths.forEach(function (v) {
+          app.upToClound("imgSwiper", that.data.
+            name + Math.random().toString(),
+            v, tmpUrl => {
+              console.log(tmpUrl)
+              that.data.tempFileArr.push(tmpUrl)
+              // console.log(getCurrentPages())
+            })
+        })
+
+      }
+    })
+    // console.log(getCurrentPages())
+  },
 })
