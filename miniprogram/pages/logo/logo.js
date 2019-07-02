@@ -61,7 +61,7 @@ Page({
           //用户首次使用
           if (e.result.data.length==0){
             //customers表添加用户openid
-            app.addRows("customers", { openid: app.globalData.openid ,xypay:[-1,0]},function(e2){
+            app.addRows("customers", { openid: app.globalData.openid ,xypay:{status:-1,amt:0,fileArr:[]}},function(e2){
               console.log("欢迎使用小程序");
             })
             
