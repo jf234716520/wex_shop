@@ -1,0 +1,7 @@
+<!--miniprogram/pages/XyApprove/XyList.wxml-->
+          <view class="approve-list" wx:for="{{approve}}" wx:key="{{index}}">
+
+            <image class="approve-thumb" src="{{item.good_img}}"></image> 小图
+            <text class="approve-pro-name">{{item.good_name}}</text> 用户名
+            <text class="approve-pro-price">￥{{item.good_price}}</text> 额度
+          </view>

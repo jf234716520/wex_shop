@@ -67,8 +67,24 @@
         </navigator>
 
       </view>
+    <view class="cart-footer">
+          <!-- 全选图标 
+            <icon wx:if="{{selectAllStatus}}" type="success_circle" color="orange" class="total-select" bindtap="selectAll"/>
+            <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll"/>
+            <view class='footer-select'>
+              <text></text>
+            </view>-->
 
+          <!-- 总价 -->
+          <view class="cart-toatl-price">￥{{totalPrice}}</view>
+          <!-- 支付按钮 -->
+          <view class="order-icon" bindtap="gotoOrder">
+            <view>确认支付</view>
+          </view>
+
+        </view>
     </scroll-view>
+
   </view>
   <view class="{{currentTab == 1 ? 'show':'hidden'}}">
     <scroll-view>
@@ -92,33 +108,17 @@
             <text class="cart-pro-price">￥{{item.good_price}}</text>
             <!-- 加/数量/减 -->
             <view class="cart-count-box">
-              <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
+              <text class="cart-count-down" bindtap="minusCount2" data-obj="{{obj}}" data-index="{{index}}">-</text>
               <text class="cart-count-num">{{item.num}}</text>
               <text style='font-size:20rpx;'>{{item.good_unit}}</text>
-              <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+              <text class="cart-count-add" bindtap="addCount2" data-index="{{index}}">+</text>
             </view>
             <!-- 删除 -->
-            <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
+            <text class="cart-del" bindtap="deleteList2" data-index="{{index}}">×</text>
           </view>
         </view>
 
-        <!-- 底部导航 -->
-        <view class="cart-footer">
-          <!-- 全选图标 
-            <icon wx:if="{{selectAllStatus}}" type="success_circle" color="orange" class="total-select" bindtap="selectAll"/>
-            <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll"/>
-            <view class='footer-select'>
-              <text></text>
-            </view>-->
 
-          <!-- 总价 -->
-          <view class="cart-toatl-price">￥{{totalPrice}}</view>
-          <!-- 支付按钮 -->
-          <view class="order-icon" bindtap="gotoOrder">
-            <view>确认支付</view>
-          </view>
-
-        </view>
 
 
       </view>
@@ -130,7 +130,25 @@
         </navigator>
 
       </view>
+              <!-- 底部导航 -->
+        <view class="cart-footer">
+          <!-- 全选图标 
+            <icon wx:if="{{selectAllStatus}}" type="success_circle" color="orange" class="total-select" bindtap="selectAll"/>
+            <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll"/>
+            <view class='footer-select'>
+              <text></text>
+            </view>-->
+
+          <!-- 总价 -->
+          <view class="cart-toatl-price">￥{{totalPrice2}}</view>
+          <!-- 支付按钮 -->
+          <view class="order-icon" bindtap="gotoOrder2">
+            <view>确认支付</view>
+          </view>
+
+        </view>
     </scroll-view>
+
   </view>
 
 

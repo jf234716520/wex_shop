@@ -84,6 +84,22 @@ Page({
       this.getTotalPrice();
     }
   },
+  deleteList2(e) {
+    const index = e.currentTarget.dataset.index;
+    let good = app.globalData.carts2;
+    good.splice(index, 1);
+    this.setData({
+      cart2: this.data.cart2
+    });
+
+    if (!good.length) {
+      this.setData({
+        hasList2: false
+      });
+    } else {
+      this.getTotalPrice2();
+    }
+  },
 
   /**
    * 购物车全选事件
@@ -118,6 +134,17 @@ Page({
     });
     this.getTotalPrice();
   },
+  addCount2(e) {
+    const index = e.currentTarget.dataset.index;
+    let good = app.globalData.carts2;
+    let num = good[index].num;
+    num = num + 1;
+    good[index].num = num;
+    this.setData({
+      cart2: good
+    });
+    this.getTotalPrice2();
+  },
 
   gotoOrder(){
     if (this.data.totalPrice==0){
@@ -126,6 +153,18 @@ Page({
         content: '你尚未选择任何商品哦',
       })
     }else{
+      wx.navigateTo({
+        url: '../orders/orders',
+      })
+    }
+  },
+  gotoOrder2() {
+    if (this.data.totalPrice2 == 0) {
+      wx.showModal({
+        title: '提示',
+        content: '你尚未选择任何商品哦',
+      })
+    } else {
       wx.navigateTo({
         url: '../orders/orders',
       })
@@ -148,6 +187,20 @@ Page({
       cart: good
     });
     this.getTotalPrice();
+  },
+  minusCount2(e) {
+    const index = e.currentTarget.dataset.index;
+    let good = app.globalData.carts2;
+    let num = good[index].num;
+    if (num == 0) {
+    } else {
+      num = num - 1;
+    }
+    good[index].num = num;
+    this.setData({
+      cart2: good
+    });
+    this.getTotalPrice2();
   },
 
   /**
@@ -183,7 +236,7 @@ Page({
     }
     this.setData({                                // 最后赋值到data中渲染到页面
       cart2: good,
-      totalPrice: total.toFixed(1)
+      totalPrice2: total.toFixed(1)
     });
 
   },

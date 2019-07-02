@@ -99,7 +99,7 @@ Page({
 
     //遍历
     var isRepete = false;
-    app.globalData.carts.forEach(function (v) {
+    app.globalData.carts2.forEach(function (v) {
       console.log(v);
       console.log(e.currentTarget.dataset._id);
       if (v._id == e.currentTarget.dataset._id) {

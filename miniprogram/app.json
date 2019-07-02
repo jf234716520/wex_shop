@@ -16,7 +16,9 @@
     "pages/guide/guide",
     "pages/register/register",
     "pages/guide/play",
-    "pages/applyXy/applyXy"
+    "pages/applyXy/applyXy",
+    "pages/XyApprove/XyApprove",
+    "pages/XyApprove/XyList"
   ],
   "window": {
     "backgroundColor": "#9bc1bc",

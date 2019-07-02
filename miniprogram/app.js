@@ -17,6 +17,7 @@ App({
       carts:[],  //购物车1
       carts2:[],
       goodList:[],
+      goodList2:[],
       tmpNum: 0,
       tempFilePaths: "",
       admin:["preGo"],
