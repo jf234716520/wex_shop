@@ -166,7 +166,7 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '../orders/orders',
+        url: '../orders2/orders2',
       })
     }
   },

@@ -18,7 +18,8 @@
     "pages/guide/play",
     "pages/applyXy/applyXy",
     "pages/XyApprove/XyApprove",
-    "pages/XyApprove/XyList"
+    "pages/XyApprove/XyList",
+    "pages/orders2/orders2"
   ],
   "window": {
     "backgroundColor": "#9bc1bc",

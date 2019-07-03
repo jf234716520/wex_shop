@@ -48,12 +48,6 @@
               <text></text>
             </view>-->
 
-          <!-- 总价 -->
-          <view class="cart-toatl-price">￥{{totalPrice}}</view>
-          <!-- 支付按钮 -->
-          <view class="order-icon" bindtap="gotoOrder">
-            <view>确认支付</view>
-          </view>
 
         </view>
 
