@@ -43,8 +43,8 @@
             <view class="orders-number" wx:if="{{item.isPay==0}}">未支付</view>
             <view class="orders-number" wx:if="{{item.isFinished==1}}">已支付</view>
 
-            <view class="orders-number" wx:if="{{item.paySuccess && !item.sending}}">下单时间：{{item.create_time}}</view>
-            <view class="orders-number" wx:if="{{item.finished}}">送达时间：{{item.finishedTime}}</view>
+            <view class="orders-number">下单时间：{{item.create_time}}</view>
+            <view class="orders-number" wx:if="{{item.isFinished==1}}">送达时间：{{item.finishedTime}}</view>
 
             <view style='padding:15rpx 0;'>
               <view wx:for="{{item.order}}" wx:for-item="good" wx:key="fruit">{{good.good_name}} × {{good.num}}</view>
