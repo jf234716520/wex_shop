@@ -80,9 +80,9 @@ Page({
       this.setData({
         hasList: false
       });
-    } else {
-      this.getTotalPrice();
-    }
+    } 
+    this.getTotalPrice();
+    
   },
   deleteList2(e) {
     const index = e.currentTarget.dataset.index;
@@ -96,9 +96,9 @@ Page({
       this.setData({
         hasList2: false
       });
-    } else {
-      this.getTotalPrice2();
-    }
+    } 
+    this.getTotalPrice2();
+    
   },
 
   /**

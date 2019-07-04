@@ -13,7 +13,6 @@ Page({
   },
 
   onReady() {
-    this.checkXyOrder();
     const self = this;
     // 32位随机字符串
     var nonce_str = app.RndNum()
@@ -47,9 +46,10 @@ Page({
     })
     self.setData({
       orders: orders,
-      nonce_str: nonce_str
+      nonce_str: nonce_str,
+      openid:app.globalData.openid
     })
-    this.getOpenid();
+    
     this.getTotalPrice();
   },
   // onReady↑
@@ -119,21 +119,27 @@ Page({
       })
       return;
     }
-    //未及时还款
-    
 
-
-
-
-
-
-
-
-
-
+     //未及时还款
+    app.getInfoWhereInOrder("order_manage", { openid: app.globalData.openid, order_type: 2 }, "openid", "asc", function (e) {
+      var oneDayMill = 86400000;
+      var curDate = new Date();
+      for (var i = 0; i < e.result.data.length; i++) {
+        var orderDateStr = e.result.data[i].create_time;
+        var orderDate = new Date(orderDateStr.substr(0, 4), orderDateStr.substr(4, 2), orderDateStr.substr(6, 2));
+        if ((Date.parse(curDate) - Date.parse(orderDate)) > oneDayMill * 30) {
+            wx.showModal({
+              title: 'Oh No',
+              content: '有逾期的订单未支付~',
+            })
+            return;
+        }
+      }
+    })
+   
     if (that.data.hasAddress) {
       var left = that.data.address.xypay.amt - that.data.total;
-      app.addRows("order_manage", { openid: that.data.address.openid, order_type: 2, address: that.data.address, price: that.data.total, create_time: app.CurrentTime(),isFinished:0,isPay:0},function(e1){
+      app.addRows("order_manage", { openid: that.data.address.openid, order: that.data.orders, order_type: 2, address: that.data.address, price: that.data.total, create_time: app.CurrentTime(),isFinished:0,isPay:0},function(e1){
         console.log(e1)
         app.updateDB("customers", that.data.address._id, { xypay: { amt: left } }, function (e2) {
           wx.showModal({
@@ -174,18 +180,8 @@ Page({
     })
   },
   //检查是否有逾期记录
-  checkXyOrder:function(){
-    app.getInfoWhereInOrder("order_manage", { openid: app.globalData.openid,order_type:2},"openid","asc",function(e){
-      var curDate = new Date();
-      y=curDate.getFullYear();
-      m = curDate.getMonth() > 10 ? curDate.getMonth()+ : ("0" + (curDate.getMonth()+1));
-
-      e.result.data.forEach(function(v){
-        var date = v.create_time.substr(0,8);
-        
-        Number(date)+
-      })
-    })
+  checkXyOrder: function () {
 
   }
+  
 })

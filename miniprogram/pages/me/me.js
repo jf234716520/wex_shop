@@ -49,19 +49,12 @@ Page({
           isAdmin: that.data.adiminArr.indexOf(openid)
         })
         this.getUserInfo();
-        app.getInfoWhere('order_manage',{
+        app.getInfoWhereInOrder('order_manage',{
           openid: openid
-        },e=>{
-          
-          var tmp = []
-          var len = e.data.length
-          for (var i = 0; i < len;i++){
-            tmp.push(e.data.pop())
-          }
+        },"create_time","desc",e=>{
           that.setData({
-            orders: tmp
+            orders: e.result.data
           })
-          
         })
       }
     })
@@ -83,6 +76,7 @@ Page({
           needXy: true
         })
       }
+      console.log(e.result.data[0])
       //用户额度显示
       if (e.result.data[0].xypay.status == -1 ){
         that.setData({
@@ -94,7 +88,7 @@ Page({
         })
       } else if (e.result.data[0].xypay.status == 1 ){
         that.setData({
-          xypayShow: "￥" + xypay.amt
+          xypayShow: "￥" + e.result.data[0].xypay.amt
         })
       }
 

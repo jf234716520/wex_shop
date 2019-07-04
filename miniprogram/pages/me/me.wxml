@@ -37,18 +37,21 @@
         <view class="orders">我的订单</view>
         <view class="orders-list" wx:for="{{orders}}" wx:key="index">
 
-            <view class="orders-number" wx:if="{{item.isFinished=='0'}}">订单状态：配送中</view>
-            <view class="orders-number" wx:if="{{item.isFinished=='1'}}">订单状态：已送达</view>
+            <view class="orders-number" wx:if="{{item.isFinished==0}}">订单状态：配送中</view>
+            <view class="orders-number" wx:if="{{item.isFinished==1}}">订单状态：已送达</view>
 
-            <view class="orders-number" wx:if="{{item.paySuccess && !item.sending}}">下单时间：{{item.orderTime}}</view>
+            <view class="orders-number" wx:if="{{item.isPay==0}}">未支付</view>
+            <view class="orders-number" wx:if="{{item.isFinished==1}}">已支付</view>
+
+            <view class="orders-number" wx:if="{{item.paySuccess && !item.sending}}">下单时间：{{item.create_time}}</view>
             <view class="orders-number" wx:if="{{item.finished}}">送达时间：{{item.finishedTime}}</view>
 
             <view style='padding:15rpx 0;'>
-              <view wx:for="{{item.goods}}" wx:for-item="good" wx:key="fruit">{{good.good_name}} × {{good.good_num}}</view>
+              <view wx:for="{{item.order}}" wx:for-item="good" wx:key="fruit">{{good.good_name}} × {{good.num}}</view>
             </view>
                 
             <view class="orders-footer">
-                <text>实付：￥{{item.total}}</text>
+                <text>总价：￥{{item.price}}</text>
             </view>
         </view>
     </view>
