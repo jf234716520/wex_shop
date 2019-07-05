@@ -1,7 +1,31 @@
 <!--miniprogram/pages/XyApprove/XyList.wxml-->
-          <view class="approve-list" wx:for="{{approve}}" wx:key="{{index}}">
+<scroll-view>
+  <view wx:if="{{hasList}}">
 
-            <image class="approve-thumb" src="{{item.good_img}}"></image> 小图
-            <text class="approve-pro-name">{{item.good_name}}</text> 用户名
-            <text class="approve-pro-price">￥{{item.good_price}}</text> 额度
-          </view>
+
+    <view class="approve-box">
+
+      <view class="approve-list" wx:for="{{all_not_applied_users}}" wx:key="{{index}}">
+
+
+        <image class="approve-thumb" src="{{item.xypay.fileArr}}"></image>
+        <!--</navigator>-->
+        <!-- 名称 -->
+        <text class="approve-pro-name">{{item.name}}</text>
+
+        <view class="approve-count-box">
+          <text class="approve-count-num">{{item.xypay.amt}}</text>
+        </view>
+        <view class="order-icon" bindtap="gotoUpdate" data-index="{{index}}">
+          <view>通过审核</view>
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+  <!-- 空 -->
+  <view wx:else>
+    <view class="approve-no-data">未审批列表是空的哦~</view>
+  </view>
+</scroll-view>

@@ -127,9 +127,9 @@ Page({
     }
   },
   //
-  goToXyApprove:function(){
+  goToXyList:function(){
     wx.navigateTo({
-      url: '/pages/XyApprove/XyApprove',
+      url: '/pages/XyApprove/XyList',
     })
   }
 })

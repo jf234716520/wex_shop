@@ -17,7 +17,6 @@
     "pages/register/register",
     "pages/guide/play",
     "pages/applyXy/applyXy",
-    "pages/XyApprove/XyApprove",
     "pages/XyApprove/XyList",
     "pages/orders2/orders2"
   ],
