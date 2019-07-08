@@ -132,15 +132,24 @@ Page({
     var that = this;
     //遍历
     var isRepete = false;
+    var good_v = null;
     app.globalData.carts.forEach(function (v) {
       if (v._id == that.data.articleID) {
         isRepete = true;
+        good_v = v;
+      }
+    });
+    app.globalData.carts2.forEach(function (v) {
+      if (v._id == that.data.articleID) {
+        isRepete = true;
+        good_v = v;
       }
     });
     if (isRepete) {
-      wx.showToast({
-        title: '已经添加过了~',
-      })
+      if (good_v.good_type == '2')
+        app.globalData.carts2[app.globalData.carts2.indexOf(good_v)].num += 1;
+      else
+        app.globalData.carts[app.globalData.carts.indexOf(good_v)].num += 1;
     } else {
       var goodList = app.globalData.goodList;
       goodList.forEach(function (v) {
@@ -152,13 +161,14 @@ Page({
           app.globalData.carts2.push(good);
           else
             app.globalData.carts.push(good);
-          wx.showToast({
-            title: '已添加至购物车',
-          });
+         
           return;
         }
       })
     }
+    wx.showToast({
+      title: '已添加至购物车',
+    });
   },
 
   // 立即购买

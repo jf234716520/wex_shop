@@ -118,13 +118,14 @@ Page({
           good.num = 1;
           good.sel = false;
           app.globalData.carts2.push(good);
-          wx.showToast({
-            title: '已添加至购物车',
-          });
+         
           return;
         }
       })
     }
+    wx.showToast({
+      title: '已添加至购物车',
+    });
   },
 
 
