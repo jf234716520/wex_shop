@@ -99,17 +99,17 @@ Page({
 
     //遍历
     var isRepete = false;
+    var good_v = null;
     app.globalData.carts2.forEach(function (v) {
       console.log(v);
       console.log(e.currentTarget.dataset._id);
       if (v._id == e.currentTarget.dataset._id) {
         isRepete = true;
+        good_v = v;
       }
     });
     if (isRepete) {
-      wx.showToast({
-        title: '已经添加过了~',
-      })
+      app.globalData.carts2[app.globalData.carts2.indexOf(good_v)].num += 1;
     } else {
       var goodList = app.globalData.goodList;
       goodList.forEach(function (v) {
