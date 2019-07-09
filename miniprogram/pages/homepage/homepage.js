@@ -58,7 +58,7 @@ Page({
         goodInfo: e.result.data,
         isShow: true
       })
-      console.log(that.data.activeTypeId)
+      //console.log(that.data.activeTypeId)
       wx.hideLoading()
     })
     // 是否下线

@@ -39,22 +39,28 @@ Page({
 
   onShow: function () {
     var that = this;
-    app.getInfoWhereInOrder('goods_list', { "good_type": "2","is_show":"1" }, 'create_time', 'asc',function(e){
+    // that.typeSwitch()
+    app.getInfoWhereInOrder('goods_list', {
+      "good_type": "2",
+      "is_show": "1",
+      "good_cat": this.data.activeTypeId
+    }, 'create_time', 'asc', function (e) {
       that.setData({
         goodInfo: e.result.data,
         isShow: true
       })
+      //console.log(that.data.activeTypeId)
       wx.hideLoading()
     })
     
     // 是否下线
-    app.getInfoWhere('setting', { "option": "offLine" },
-      e => {
-        that.setData({
-          offLine: e.data["0"].offLine
-        })
-      }
-    )
+    // app.getInfoWhere('setting', { "option": "offLine" },
+    //   e => {
+    //     that.setData({
+    //       offLine: e.data["0"].offLine
+    //     })
+    //   }
+    // )
   },
 
   onHide: function () {
@@ -135,46 +141,68 @@ Page({
     getCurrentPages()["0"].setData({
       activeTypeId: parseInt(e.currentTarget.id)
     })
+    var that = this;
     switch (e.currentTarget.id) {
       // 全部展示
       case '0':
-        app.getInfoByOrder('goods_list', 'time', 'desc',
-          e => {
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
+
+
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 0
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
         break;
       // 今日特惠
       case '1':
-        app.getInfoWhere('fruit-board', { is_show: '1' },
-          e => {
-            getCurrentPages()["0"].setData({
-              goodInfo: e.data
-            })
-          }
-        )
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 1
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
         break;
       // 销量排行
       case '2':
-        app.getInfoWhere('fruit-board', { myClass: '2' },
-          e => {
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 2
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
         break;
       // 店主推荐
       case '3':
-        app.getInfoWhere('fruit-board', { recommend: '1' },
-          e => {
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 3
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
         break;
     }
   },
