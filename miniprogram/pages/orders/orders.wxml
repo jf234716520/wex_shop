@@ -21,7 +21,8 @@
 
     <view class="orders-footer">
         <view class="orders-footer-total">
-          <view style="padding-bottom:5px">支付：￥{{total1}}</view>
+          <view style='padding-bottom:10rpx'>微信支付：￥{{total1}}</view>
+          <view>信额支付：￥{{total2}}</view>
         </view>
         <view class="orders-footer-btn" bindtap="toPay">去付款</view>
     </view>
