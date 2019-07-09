@@ -8,7 +8,7 @@
       <view class="approve-list" wx:for="{{all_not_applied_users}}" wx:key="{{index}}">
 
 
-        <image class="approve-thumb" src="{{item.xypay.fileArr}}"></image>
+        <image class="approve-thumb" src="{{item.xypay.fileArr[0]}}" bindtap='toPreView' data-url="{{item.xypay.fileArr}}"></image>
         <!--</navigator>-->
         <!-- 名称 -->
         <text class="approve-pro-name">{{item.name}}</text>

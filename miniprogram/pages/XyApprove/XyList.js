@@ -106,4 +106,12 @@ Page({
     })
   },
 
+  //预览图片
+  toPreView:function(e){
+    wx.previewImage({
+      urls: e.currentTarget.dataset.url // 需要预览的图片http链接列表
+    })
+
+  }
+
 })
