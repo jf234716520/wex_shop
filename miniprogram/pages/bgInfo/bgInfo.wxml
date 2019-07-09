@@ -71,6 +71,15 @@
       </picker>
     </view>
   </view>
+
+    <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__bd cell-title">商品大类</view>
+    <view class="weui-cell__ft">
+      <picker range="{{myCat_Arr}}" value="{{good_cat}}" bindchange="getMyCat">
+        <view class="weui-input">{{myCat_Arr[good_cat]||'水果'}}</view>
+      </picker>
+    </view>
+  </view>
  
 </view>
 

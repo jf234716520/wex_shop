@@ -18,6 +18,7 @@ Page({
     // 上传的信息
     fruitID:null, 
     good_type_s:0,
+    good_cat:0,
     create_time:'', 
     good_img:[],    
     good_name:null,   
@@ -34,6 +35,12 @@ Page({
     myType_Arr: [
       '是',
       '否'
+    ],
+    myCat_Arr: [
+      '水果',
+      '零食',
+      '文具',
+      '数码'
     ],
     reFresh:null
   },
@@ -127,6 +134,13 @@ Page({
       good_type: (Number(that.data.good_type_s)+1)+''
     })
   },
+
+  getMyCat: function (e) {
+    var that = this
+    this.setData({
+      good_cat: Number(e.detail.value) 
+    })
+  },
   // --------------------!!!  选项卡切换  !!!----------------------
   tapTo1: function() {  //添加
     var that = this
@@ -154,8 +168,8 @@ Page({
     const that = this
     if (that.data.good_name && that.data.good_price){
       new Promise((resolve, reject) => {
-        const { create_time, good_img, good_name, good_price, good_type, good_unit, is_show, remark } = that.data
-        const theInfo = { create_time, good_img, good_name, good_price, good_type, good_unit, is_show, remark }
+        const { create_time,good_cat, good_img, good_name, good_price, good_type, good_unit, is_show, remark } = that.data
+        const theInfo = { create_time,good_cat, good_img, good_name, good_price, good_type, good_unit, is_show, remark }
         theInfo['create_time'] = parseInt(app.CurrentTime())
         resolve(theInfo)
       }).then(theInfo => {
