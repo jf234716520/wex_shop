@@ -14,6 +14,7 @@ Page({
       { id: 2, name: "文具" },
       { id: 3, name: "数码" },
     ],
+    imgUrls: [],
     activeTypeId: 0,
     isShow:true, 
     openid: '',   
@@ -28,6 +29,12 @@ Page({
     })
     that.setData({
       isShow: false
+    })
+    app.getInfoWhereInOrder('swiper_pic', { status: 1 }, 'status', 'desc', function (e) {
+      console.log(e)
+      that.setData({
+        imgUrls: e.result.data
+      })
     })
     // 获取openId
     //this.getOpenid();

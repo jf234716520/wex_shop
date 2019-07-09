@@ -131,5 +131,10 @@ Page({
     wx.navigateTo({
       url: '/pages/XyApprove/XyList',
     })
+  },
+  goToSwiper:function(){
+    wx.navigateTo({
+      url: '/pages/swiperManage/swiperManage',
+    })
   }
 })

@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "霹雳购",
   "usingComponents": {
-    "mySearch":"/components/search/search",
-    "swiper": "/components/swiper/swiper"
+    "mySearch":"/components/search/search"
+    
   }
 }

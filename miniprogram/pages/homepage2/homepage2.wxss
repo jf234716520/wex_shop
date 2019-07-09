@@ -35,4 +35,3 @@ width: 710rpx;margin: 20rpx;border-radius: 10rpx 10rpx 0 0;position: relative;to
 .homeBottom {padding-bottom: 25rpx;display: flex;justify-content: center;align-items: center}
 .homeBottom .bottomLine {height: 1rpx;width: 50rpx;background: rgb(202, 201, 201);margin: 0 15rpx}
 .homeBottom .bottomWord {font-size: 25rpx;color: rgb(202, 201, 201)}
-

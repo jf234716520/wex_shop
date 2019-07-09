@@ -11,10 +11,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imgUrls: [
-      '',
-      ''
-      ]
+    imgUrls: ['http://pic37.nipic.com/20140113/8800276_184927469000_2.png']
   },
 
   /**
