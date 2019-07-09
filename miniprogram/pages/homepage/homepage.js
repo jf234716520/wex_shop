@@ -28,6 +28,7 @@ Page({
         name: "数码"
       },
     ],
+    imgUrls: [],
     activeTypeId: 0,
     isShow: true,
     openid: '',
@@ -48,6 +49,12 @@ Page({
 
   onShow: function() {
     var that = this;
+    app.getInfoWhereInOrder('swiper_pic', { status: 1 },'status','desc',function(e){
+      console.log(e)
+      that.setData({
+        imgUrls:e.result.data
+      })
+    })
     // that.typeSwitch()
     app.getInfoWhereInOrder('goods_list', {
       "good_type": "1",

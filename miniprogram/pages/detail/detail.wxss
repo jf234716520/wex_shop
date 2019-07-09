@@ -2,7 +2,7 @@
 page {background-color: rgb(245, 249, 253)}
 
 /* 图片 */
-.detail-image {width: 100%;height: 600rpx;}
+.detail-image {width: 100%;height: 900rpx;}
 .detail-image image {width: 100%;height: 100%;}
 
 /* 详细信息 */

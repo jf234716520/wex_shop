@@ -20,6 +20,8 @@
 
     <!-- 订单管理 -->
     <view class="bgInfo {{openid}}" bindtap='goToXyList' hidden="{{!(isAdmin >= 0)}}">额度审批</view>
+
+    <view class="bgInfo {{openid}}" bindtap='goToSwiper' hidden="{{!(isAdmin >= 0)}}">轮播图</view>
     <!-- 地址管理 -->
     <view class="address-box">
         <view class="address-manage">

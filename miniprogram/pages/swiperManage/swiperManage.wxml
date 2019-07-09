@@ -1,0 +1,31 @@
+<!--miniprogram/pages/XyApprove/XyList.wxml-->
+<scroll-view>
+  <view wx:if="{{hasList}}">
+
+
+    <view class="approve-box">
+
+      <view class="approve-list" wx:for="{{imgUrls}}" wx:key="{{index}}">
+
+
+        <image class="approve-thumb" src="{{item.pic_url}}"></image>
+        <!--</navigator>-->
+        <!-- 名称 -->
+        <text class="approve-pro-name">{{item.name}}</text>
+
+        <view class="order-icon"  data-index="{{index}}">
+          <view wx:if="{{item.status==0}}">已删除</view>
+          <view wx:else bindtap="gotoUpdate" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 空 -->
+  <view wx:else>
+    <view class="approve-no-data">轮播图未配置~</view>
+  </view>
+  <view class="order-icon-center" bindtap='chooseImage'>
+    图片上传
+  </view>
+  
+</scroll-view>
