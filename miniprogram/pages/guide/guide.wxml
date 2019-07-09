@@ -1,19 +1,20 @@
 <!--miniprogram/pages/guide/guide.wxml-->
-<view class="lq-view" bindtap='toHomePage2'>
-信用消费 
-</view>
-
-<view class="xy-view" bindtap='toHomePage1'>
-临期商品
-</view>
-
-<view class="footer">
-<myHelp></myHelp>
-  <view class="bottom-left" bindtap='showVideo'>
-  了解
+<view class='main'>
+  <view class="lq-view" bindtap='toHomePage2'>
+    信用消费
   </view>
-  <view class="bottom-right" bindtap='toRegister'>
-  注册
+
+  <view class="xy-view" bindtap='toHomePage1'>
+    临期商品
   </view>
-  
+
+  <view class="footer">
+    <view class="bottom-left" bindtap='showVideo'>
+      了解
+    </view>
+    <view class="bottom-right" bindtap='toRegister'>
+      注册
+    </view>
+
+  </view>
 </view>
