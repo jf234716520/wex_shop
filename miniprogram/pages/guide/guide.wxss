@@ -4,18 +4,19 @@
 }
 .lq-view{
   width: 100%;
-  height: 50vh;
-  margin: auto;
+  height: 36vh;
+  background-color: #9bc1bc;
+}
+.mid-view{
+  width: 100%;
+  height: 14vh;
   text-align: center;
   line-height: 100px;
   background-color: #9bc1bc;
 }
 .xy-view{
-  width: 50%;
+  width: 100%;
   height: 50vh;
-  margin: auto;
-  text-align: center;
-  line-height: 100px;
   background-color: #9bc1bc;
 }
 .bottom-left{
