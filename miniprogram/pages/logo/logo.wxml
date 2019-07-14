@@ -1,3 +1,5 @@
-<view >
-<image  src='../../images/common/logo2.png' mode='widthFix' style='width: 100%;'></image>
+<view class='main'>
+  <view class='logo'>
+    <image src='../../images/common/logo2.png' mode='widthFix'></image>
+  </view>
 </view>

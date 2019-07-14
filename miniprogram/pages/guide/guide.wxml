@@ -1,16 +1,20 @@
 <!--miniprogram/pages/guide/guide.wxml-->
 <view class='main'>
-  <view class="lq-view" bindtap='toHomePage2'>
-    <image src='../../images/xy.jpg' style='width:100%'></image>
-  </view>
-
   <view class='mid-view'>
-  霹雳购，开启您的时尚生活~
+
   </view>
+  <view class="lq-view" bindtap='toHomePage2'>
+    <image src='../../images/xy.jpg' style='width:100%;'></image>
+  </view>
+<!-- 
+  <view class='mid-view'>
+
+  </view> -->
 
   <view class="xy-view" bindtap='toHomePage1'>
-    <image src='../../images/lq.jpg' style='width:100%'></image>
+    <image src='../../images/lq.jpg' style='width:100%;'></image>
   </view>
+  <view class='fix-view'></view>
 
   <view class="footer">
     <view class="bottom-left" bindtap='showVideo'>

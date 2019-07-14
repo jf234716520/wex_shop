@@ -1,10 +1,10 @@
 <view class="main">
-    <view style='color: #adadad;font-size: 34rpx;padding:20rpx 35rpx;border-bottom:0.5rpx #ededed solid;'>收货地址和备注：</view>
+    <view style='color: #a55350;font-size: 34rpx;padding:20rpx 35rpx;border-bottom:0.5rpx ##FFAC82 solid;'>收货地址和备注：</view>
     <navigator url="../address/address">
         <view wx:if="{{hasAddress}}" class="orders-address">
             <text class="orders-address-name">收货人: {{address.name}}</text>
             <view class="orders-address-phone">电话: {{address.phone}}</view>
-            <view class="orders-address-detail">宿舍楼: {{address.addressd}}</view>
+            <!-- <view class="orders-address-detail">宿舍楼: {{address.addressd}}</view> -->
             <view class="orders-address-detail">备注: {{address.remark}}</view>
         </view>
         <view wx:else class="orders-no-address">添加收货地址</view>
@@ -18,7 +18,7 @@
             <view class="orders-count-num">×{{item.num}}</view>
         </view>
     </view>
-
+<view class='fix-view'></view>
     <view class="orders-footer">
         <view class="orders-footer-total">
           <view style="padding-bottom:5px">支付：￥{{total1}}</view>

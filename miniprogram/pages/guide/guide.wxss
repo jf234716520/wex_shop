@@ -1,23 +1,26 @@
 /* miniprogram/pages/guide/guide.wxss */
 .main{
-  background-color: #9bc1bc;
+  background-color: #FFAC82;
 }
 .lq-view{
   width: 100%;
-  height: 36vh;
-  background-color: #9bc1bc;
+  height: 33vh;
+  background-color: #FFAC82;
 }
 .mid-view{
   width: 100%;
-  height: 14vh;
-  text-align: center;
-  line-height: 100px;
-  background-color: #9bc1bc;
+  height: 8vh;
+  background-color: #FFAC82;
+}
+.fix-view{
+  width: 100%;
+  height: 20vh;
+  background-color: #FFAC82;
 }
 .xy-view{
   width: 100%;
-  height: 50vh;
-  background-color: #9bc1bc;
+  height: 33vh;
+  background-color: #FFAC82;
 }
 .bottom-left{
   height:40px;
@@ -26,7 +29,7 @@
   line-height: 40px;
   position: absolute;
   text-align: center;
-  background-color: #9bc1bc;
+  background-color: #FFAC82;
 }
 .bottom-right{
   position: absolute;
@@ -36,11 +39,11 @@
   width: 25%;
   height:40px;
   line-height: 40px;
-  background-color: #9bc1bc;
+  background-color: #FFAC82;
 }
 
 .footer{
-  background-color: #9bc1bc;
+  background-color: #FFAC82;
   width: 100%;
   height: 50px;
   position: fixed;
