@@ -1,4 +1,4 @@
 /* miniprogram/pages/guide/play.wxss */
 .main{
-  background-color: #FFAC82;
+  background-color: #FEF33F;
 }

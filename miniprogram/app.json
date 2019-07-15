@@ -22,16 +22,16 @@
     "pages/swiperManage/swiperManage"
   ],
   "window": {
-    "backgroundColor": "#FFAC82",
+    "backgroundColor": "#FEF33F",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FFAC82",
+    "navigationBarBackgroundColor": "#FEF33F",
     "navigationBarTitleText": "霹雳购",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "selectedColor": "#299661",
     "color": "#878787",
-    "backgroundColor": "#FFAC82",
+    "backgroundColor": "#FEF33F",
     "list": [
       {
         "pagePath": "pages/homepage/homepage",

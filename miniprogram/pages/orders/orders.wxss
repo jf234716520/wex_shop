@@ -3,7 +3,7 @@
     padding: 20rpx 50rpx 20rpx 35rpx;
     font-size: 14px;
     line-height: 25px;
-    border-bottom: 20rpx solid #FFAC82;
+    border-bottom: 20rpx solid #FEF33F;
     color: #a55350;
 }
 .orders-address::after{
@@ -28,7 +28,7 @@
     height: 90rpx;
     line-height: 90rpx;
     color: #a55350;
-    border-bottom: 20rpx solid #FFAC82;
+    border-bottom: 20rpx solid #FEF33F;
     text-align: center;
 }
 .orders-no-address::after{
@@ -51,7 +51,7 @@
     position: relative;
     padding:20rpx 20rpx 20rpx 220rpx;
     height: 180rpx;
-    border-bottom: 1rpx solid #FFAC82;
+    border-bottom: 1rpx solid #FEF33F;
 }
 .orders-thumb{
     position: absolute;
@@ -65,14 +65,14 @@
 }
 
 .orders-footer{
-  background-color: #FFAC82;
+  background-color: #FEF33F;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 150rpx;
     line-height: 95rpx;
-    border-top: 1rpx solid #FFAC82;
+    border-top: 1rpx solid #FEF33F;
 }
 .orders-footer .orders-footer-total{
     float: left;
@@ -95,9 +95,9 @@
 
 }
 .main{
-  background-color: #FFAC82
+  background-color: #FEF33F
 }
 .fix-view{
-  background-color: #FFAC82;
+  background-color: #FEF33F;
   height: 60vh
 }
