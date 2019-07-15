@@ -57,5 +57,5 @@
             </view>
         </view>
     </view>
-    <view class='fix-view'></view>
+    <!-- <view class='fix-view'></view> -->
 </view>

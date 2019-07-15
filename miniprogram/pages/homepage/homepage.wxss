@@ -1,7 +1,7 @@
-page {background-color: #FEF33F}
+page {background-color: rgb(255, 255, 255)}
 
 /* 轮播图 */
-.swiperContainer {width: 750rpx;height: 500rpx;}
+.swiperContainer {width: 750rpx;height: 400rpx;background-color: #FEF33F}
 .fruit-board {margin-top: 10rpx}
 
 

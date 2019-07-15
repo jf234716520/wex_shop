@@ -95,7 +95,7 @@
 
 }
 .main{
-  background-color: #FEF33F
+  background-color: rgb(255, 255, 255)
 }
 .fix-view{
   background-color: #FEF33F;

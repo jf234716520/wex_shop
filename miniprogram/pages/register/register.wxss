@@ -23,7 +23,7 @@
 page {
   line-height: 1.6;
   font-family: -apple-system-font, "Helvetica Neue", sans-serif;
-  background: #FEF33F
+  /* background: #FEF33F */
 }
 
 icon {

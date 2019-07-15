@@ -1,7 +1,7 @@
 /* miniprogram/pages/cart.wxss */
 
 page{
-  background-color: #FEF33F;
+  /* background-color: #FEF33F; */
   font-size: 32rpx;
 }
 .navigator-hover{

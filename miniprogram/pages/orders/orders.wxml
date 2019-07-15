@@ -18,7 +18,7 @@
             <view class="orders-count-num">×{{item.num}}</view>
         </view>
     </view>
-<view class='fix-view'></view>
+<!-- <view class='fix-view'></view> -->
     <view class="orders-footer">
         <view class="orders-footer-total">
           <view style="padding-bottom:5px">支付：￥{{total1}}</view>

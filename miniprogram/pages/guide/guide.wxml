@@ -1,5 +1,5 @@
 <!--miniprogram/pages/guide/guide.wxml-->
-<view class='main'>
+<view>
   <view class='mid-view'>
 
   </view>

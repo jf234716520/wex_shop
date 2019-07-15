@@ -1,7 +1,7 @@
 <!--miniprogram/pages/guide/play.wxml-->
-<view class='main'>
-  <view style="display:flex;justify-content: center;">
-    <video autoplay='true' src='cloud://prego-cloud.7072-prego-cloud-1259362637/0605_1.mov'></video>
+<view >
+  <view style="width:100%;display:flex;justify-content: center;">
+    <video autoplay='true' src='cloud://prego-cloud.7072-prego-cloud-1259362637/0605_1.mov' mode="widthFix"></video>
   </view>
   <view style="text-align: center;">服务条款的确认和接纳</view>
   <view>1、本程序的各项内容和服务的所有权归本公司拥有。用户在接受本服务之前，请务必仔细阅读本条款。用户使用服务，或通过完成注册程序，表示用户接受所有服务条款。</view>
