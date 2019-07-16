@@ -52,9 +52,22 @@ Page({
         app.getInfoWhereInOrder('order_manage',{
           openid: openid
         },"create_time","desc",e=>{
+          var curTime = new Date();
+          for (var index = 0; index < e.result.data.length; index++){
+           
+            if (e.result.data[index].isPay == 0 && e.result.data[index].order_type==2){
+              var createTime = e.result.data[index].create_time+"";
+              var orderDate = new Date(createTime.substr(0, 4), Number(createTime.substr(4, 2))-1, createTime.substr(6, 2));
+              
+              var intime = Date.parse(orderDate) + 30 * 86400000 - Date.parse(curTime);
+              e.result.data[index].leftDay = Math.ceil(intime / 86400000);
+            }
+          }
+         
           that.setData({
             orders: e.result.data
           })
+          
         })
       }
     })
@@ -76,7 +89,7 @@ Page({
           needXy: true
         })
       }
-      console.log(e.result.data[0])
+      
       //用户额度显示
       if (e.result.data[0].xypay.status == -1 ){
         that.setData({

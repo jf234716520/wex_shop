@@ -45,6 +45,8 @@
             <view class="orders-number" wx:if="{{item.isPay==0}}">未支付</view>
             <view class="orders-number" wx:if="{{item.isFinished==1}}">已支付</view>
 
+            <view class="orders-number" wx:if="{{item.isPay==0}}&&{{item.order_type==2}}">剩余时间：{{item.leftDay}}天</view>
+
             <view class="orders-number">下单时间：{{item.create_time}}</view>
             <view class="orders-number" wx:if="{{item.isFinished==1}}">送达时间：{{item.finishedTime}}</view>
 
