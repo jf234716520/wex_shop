@@ -22,19 +22,39 @@
 }
 .bottom-left{
   height:40px;
-  width: 25%;
+  width: 80px;
   left: 5px;
   line-height: 40px;
   position: absolute;
   text-align: center;
   background-color: #FEF33F;
 }
+.chkbox{
+  position: absolute;
+  left: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 10%;
+  height: 90%;
+}
+.btn_tk{
+display: flex;
+
+margin-left: 15px;
+text-align: center;
+justify-content: center;  
+
+}
+
+.btn_tk button{background-color: #FEF33F}
+.btn_tk button::after{border: 0}
 .bottom-right{
   position: absolute;
   right: 5px;
   top:0;
   text-align: center;
-  width: 25%;
+  width: 80px;
   height:40px;
   line-height: 40px;
   background-color: #FEF33F;

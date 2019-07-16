@@ -19,7 +19,8 @@
     "pages/applyXy/applyXy",
     "pages/XyApprove/XyList",
     "pages/orders2/orders2",
-    "pages/swiperManage/swiperManage"
+    "pages/swiperManage/swiperManage",
+    "pages/guide/showtk"
   ],
   "window": {
     "backgroundColor": "#FEF33F",

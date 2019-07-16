@@ -6,7 +6,7 @@
   <view class="lq-view" bindtap='toHomePage2'>
     <image src='../../images/xy.jpg' style='width:100%;'></image>
   </view>
-<!-- 
+  <!-- 
   <view class='mid-view'>
 
   </view> -->
@@ -20,6 +20,14 @@
     <view class="bottom-left" bindtap='showVideo'>
       <button style='background-color:#FEF33F'>了解</button>
     </view>
+    <view class="chkbox">
+      <checkbox></checkbox>
+    </view>
+    <view class='btn_tk'>
+      <button bindtap='changestat_tk'>已阅并同意条款</button>
+    </view>
+
+
     <view class="bottom-right" bindtap='toRegister'>
       <button style='background-color:#FEF33F'>注册</button>
     </view>
