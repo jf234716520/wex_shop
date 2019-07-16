@@ -1,11 +1,13 @@
 // miniprogram/pages/guide/guide.js
+const app =getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    hasRead:false
+    haha_id:null,
+    check: 0
 
   },
 
@@ -13,7 +15,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    app.getInfoWhereInOrder("customers", { "openid": app.globalData.openid }, "openid", "asc", function (e1) {
+      that.setData({
+        haha_id: e1.result.data[0]._id
+      })
+    })
   },
 
   /**
@@ -64,36 +71,90 @@ Page({
   onShareAppMessage: function () {
 
   },
-  changestat_tk(){
+  changestat_tk() {
     wx.navigateTo({
       url: './showtk',
     })
   },
+  checked: function (e) {
+    var that = this
 
-  toHomePage2(){
-    wx.switchTab({
-      url: '../homepage2/homepage2',
-    })
+    console.log(that.data.haha_id)
+    if (e.detail.value == '') {
+      that.setData({
+        check: 0
+        //addrow
+      })
+      app.updateDB('customers',that.data.haha_id,{hasRead:false},function(ea){
+        // console.log(ea)
+      })
+
+    }
+
+    else {
+
+      that.setData({
+        check: 1
+        //addrow
+      }
+      )
+      app.updateDB('customers', that.data.haha_id, { hasRead: true }, function (ee) {
+        // console.log(ee)
+      })
+
+    }
+
+    console.log(e.detail.value);
+
+    console.log(that.data.check);
+
+  },
+
+
+  toHomePage2() {
+    if (this.data.check == 1) {
+      wx.switchTab({
+        url: '../homepage2/homepage2',
+      })
+    }
+    else {
+      wx.showModal({
+        title: '提示',
+        content: "请先阅读并同意条款"
+      })
+    }
   },
 
   toHomePage1() {
-    if(hasRead){
-    wx.switchTab({
-      url: '../homepage/homepage',
-    })
+    if (this.data.check == 1) {
+      wx.switchTab({
+        url: '../homepage/homepage',
+      })
+    }
+    else {
+      wx.showModal({
+        title: '提示',
+        content: "请先阅读并同意条款"
+      })
     }
   },
-  toRegister(){
-    if(hasRead){
+  toRegister() {
+    if (this.data.check == 1) {
+      wx.navigateTo({
+        url: '../register/register',
+      })
+    }
+    else {
+      wx.showModal({
+        title: '提示',
+        content: "请先阅读并同意条款"
+      })
+    }
+  },
+  showVideo() {
     wx.navigateTo({
-      url: '../register/register',
+      url: './play',
     })
-    }
-  },
-    showVideo() {
-wx.navigateTo({
-  url: './play',
-})
 
   }
 })
