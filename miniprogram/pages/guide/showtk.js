@@ -1,11 +1,10 @@
-// miniprogram/pages/guide/guide.js
+// miniprogram/pages/guide/showtk.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    hasRead:false
 
   },
 
@@ -62,38 +61,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  },
-  changestat_tk(){
-    wx.navigateTo({
-      url: './showtk',
-    })
-  },
-
-  toHomePage2(){
-    wx.switchTab({
-      url: '../homepage2/homepage2',
-    })
-  },
-
-  toHomePage1() {
-    if(hasRead){
-    wx.switchTab({
-      url: '../homepage/homepage',
-    })
-    }
-  },
-  toRegister(){
-    if(hasRead){
-    wx.navigateTo({
-      url: '../register/register',
-    })
-    }
-  },
-    showVideo() {
-wx.navigateTo({
-  url: './play',
-})
 
   }
 })

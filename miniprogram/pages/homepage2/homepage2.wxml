@@ -7,7 +7,7 @@
 
   <!-- 轮播图 -->
   <!-- 轮播图 -->
-  <view style='height:350rpx;width:100%'> 
+  <view style='height:300rpx;width:100%;margin-top:100rpx;'> 
    <view class='swiperContainer'>
     <swiper class="swiper_box" autoplay="true" interval="5000" circular="true">
       <block wx:for="{{imgUrls}}" wx:key="id">
@@ -29,7 +29,7 @@
   </view>
 
   <!-- 商品图 -->
-  <view class='extra'></view>
+  <!-- <view class='extra'></view> -->
   <view class='fruit-container'>
     <!-- 水果信息卡片 -->
     <block wx:for="{{goodInfo}}" wx:key='fruitID'>

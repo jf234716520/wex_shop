@@ -19,19 +19,20 @@
     "pages/applyXy/applyXy",
     "pages/XyApprove/XyList",
     "pages/orders2/orders2",
-    "pages/swiperManage/swiperManage"
+    "pages/swiperManage/swiperManage",
+    "pages/guide/showtk"
   ],
   "window": {
-    "backgroundColor": "#9bc1bc",
+    "backgroundColor": "#FEF33F",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#9bc1bc",
+    "navigationBarBackgroundColor": "#FEF33F",
     "navigationBarTitleText": "霹雳购",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#EEAD0E",
+    "selectedColor": "#299661",
     "color": "#878787",
-    "backgroundColor": "#9bc1bc",
+    "backgroundColor": "#FEF33F",
     "list": [
       {
         "pagePath": "pages/homepage/homepage",

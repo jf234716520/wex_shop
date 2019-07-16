@@ -1,45 +1,67 @@
 /* miniprogram/pages/guide/guide.wxss */
-.main{
-  background-color: #9bc1bc;
-}
+
 .lq-view{
   width: 100%;
-  height: 50vh;
-  margin: auto;
-  text-align: center;
-  line-height: 100px;
-  background-color: #9bc1bc;
+  height: 33vh;
+  background-color: #FEF33F;
+}
+.mid-view{
+  width: 100%;
+  height: 8vh;
+  background-color: #FEF33F;
+}
+.fix-view{
+  width: 100%;
+  height: 20vh;
+  background-color: #FEF33F;
 }
 .xy-view{
-  width: 50%;
-  height: 50vh;
-  margin: auto;
-  text-align: center;
-  line-height: 100px;
-  background-color: #9bc1bc;
+  width: 100%;
+  height: 33vh;
+  background-color: #FEF33F;
 }
 .bottom-left{
   height:40px;
-  width: 25%;
+  width: 80px;
   left: 5px;
   line-height: 40px;
   position: absolute;
   text-align: center;
-  background-color: #9bc1bc;
+  background-color: #FEF33F;
 }
+.chkbox{
+  position: absolute;
+  left: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 10%;
+  height: 90%;
+}
+.btn_tk{
+display: flex;
+
+margin-left: 15px;
+text-align: center;
+justify-content: center;  
+
+}
+
+.btn_tk button{background-color: #FEF33F}
+.btn_tk button::after{border: 0}
 .bottom-right{
   position: absolute;
   right: 5px;
   top:0;
   text-align: center;
-  width: 25%;
+  width: 80px;
   height:40px;
   line-height: 40px;
-  background-color: #9bc1bc;
+  background-color: #FEF33F;
 }
 
 .footer{
-  background-color: #9bc1bc;
+  background-color: #FEF33F;
   width: 100%;
   height: 50px;
   position: fixed;

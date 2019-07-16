@@ -1,6 +1,6 @@
 /* miniprogram/pages/XyApprove/XyList.wxss */
 page{
-  background-color: #9bc1bc;
+  /* background-color: #FEF33F; */
   font-size: 32rpx;
 }
 .navigator-hover{

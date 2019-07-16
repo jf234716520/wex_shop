@@ -9,16 +9,48 @@ Page({
     imgSwiperUrl: '',
     goodInfo: [],
     typeCat: [
-      { id: 0, name: "水果" },
-      { id: 1, name: "零食" },
-      { id: 2, name: "文具" },
-      { id: 3, name: "数码" },
+      {
+        id: 0,
+        name: "乳料饮品"
+      },
+      {
+        id: 1,
+        name: "坚果炒货"
+      },
+      {
+        id: 2,
+        name: "卤味小吃"
+      },
+      {
+        id: 3,
+        name: "饼干膨化"
+      },
+      {
+        id: 4,
+        name: "甜品甜食"
+      },
+      {
+        id: 5,
+        name: "豆干辣条"
+      },
+      {
+        id: 6,
+        name: "方便速食"
+      },
+      {
+        id: 7,
+        name: "糖巧果冻"
+      },
+      {
+        id: 8,
+        name: "水果冻干"
+      },
     ],
     imgUrls: [],
     activeTypeId: 0,
-    isShow:true, 
-    openid: '',   
-    offLine:null  //是否维护
+    isShow: true,
+    openid: '',
+    offLine: null  //是否维护
   },
 
   // ------------生命周期函数------------
@@ -41,7 +73,7 @@ Page({
   },
 
   onReady: function () {
-   
+
   },
 
   onShow: function () {
@@ -59,7 +91,7 @@ Page({
       //console.log(that.data.activeTypeId)
       wx.hideLoading()
     })
-    
+
     // 是否下线
     // app.getInfoWhere('setting', { "option": "offLine" },
     //   e => {
@@ -87,7 +119,7 @@ Page({
   },
 
   onShareAppMessage: function () {
-  
+
   },
 
   /********************本地方法 ***************************/
@@ -131,7 +163,7 @@ Page({
           good.num = 1;
           good.sel = false;
           app.globalData.carts2.push(good);
-         
+
           return;
         }
       })
@@ -211,6 +243,82 @@ Page({
         })
         break;
         break;
+      case '4':
+
+
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 4
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
+      // 今日特惠
+      case '5':
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 5
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
+        break;
+      // 销量排行
+      case '6':
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 6
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
+        break;
+      // 店主推荐
+      case '7':
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 7
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
+        break;
+      // 店主推荐
+      case '8':
+        app.getInfoWhereInOrder('goods_list', {
+          "good_type": "2",
+          "is_show": "1",
+          "good_cat": 8
+        }, 'create_time', 'asc', function (e) {
+          that.setData({
+            goodInfo: e.result.data,
+            isShow: true
+          })
+          wx.hideLoading()
+        })
+        break;
+        break;
+
     }
   },
 

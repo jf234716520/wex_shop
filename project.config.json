@@ -32,13 +32,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
+					"id": 0,
+					"name": "guide",
+					"pathName": "pages/guide/guide",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 1,
@@ -81,6 +82,13 @@
 					"name": "订单管理",
 					"pathName": "pages/bgManage/bgManage",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "logo",
+					"pathName": "pages/logo/logo",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
