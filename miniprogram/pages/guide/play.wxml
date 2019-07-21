@@ -1,4 +1,4 @@
 <!--miniprogram/pages/guide/play.wxml-->
-      <view style="width:100%;display:flex;justify-content: center;">
+      <view style="width:100%;height:100vh;display:flex;justify-content: center;align-items: center;background-color: #FEF33F">
         <video autoplay='true' src='cloud://prego-cloud.7072-prego-cloud-1259362637/0605_1.mov' mode="widthFix"></video>
       </view>

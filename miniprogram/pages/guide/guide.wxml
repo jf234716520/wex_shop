@@ -20,12 +20,13 @@
     <view class="bottom-left" bindtap='showVideo'>
       <button style='background-color:#FEF33F'>了解</button>
     </view>
-    <view class="chkbox">
-      <checkbox></checkbox>
-    </view>
-    <view class='btn_tk'>
-      <button bindtap='changestat_tk'>已阅并同意条款</button>
-    </view>
+    <checkbox-group class="chkbox" bindchange='checked'>
+      <checkbox value='hasread'>已阅读并同意</checkbox>
+      <view class='btn_tk'>
+        <button bindtap='changestat_tk'>条款</button>
+      </view>
+    </checkbox-group>
+
 
 
     <view class="bottom-right" bindtap='toRegister'>

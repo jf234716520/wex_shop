@@ -1,38 +1,374 @@
 <!--miniprogram/pages/guide/showtk.wxml-->
-<view >
-
-  <view style="text-align: center;">服务条款的确认和接纳</view>
-  <view>1、本程序的各项内容和服务的所有权归本公司拥有。用户在接受本服务之前，请务必仔细阅读本条款。用户使用服务，或通过完成注册程序，表示用户接受所有服务条款。</view>
-
-  <view>2、用户同意： (1) 提供及时、详尽及准确的个人资料。 (2) 不断更新注册资料、符合及时、详尽、准确的要求。 如果用户提供的资料不准确，本网站有结束服务的权利。 本程序将不公开用户的姓名、地址、电子邮箱、帐号和电话号码等信息（请阅隐私保护条款）。 用户在本程序的任何行为必须遵循： (1) 传输资料时必须符合中国有关法规。 (2) 使用信息服务不作非法用途和不道德行为。 (3) 不干扰或混乱网络服务。 (4) 遵守所有使用服务的网络协议、规定、程序和惯例。用户的行为准则是以因特网法规，政策、程序和惯例为根据的。</view>
-
-  <view>3、服务条款的修改 本程序有权在必要时修改条款，将会在页面公布。 如果不接受所改动的内容，用户可以主动取消自己的会员资格。如果您不取消自己的会员资格，则视为接受服务条款的变动。
+<view style='background-color: #FEF33F'>
+  <view style="font-size:24pt; line-height:108%; margin:0pt 0pt 8pt; text-align:center">
+    <text style="font-family:等线; font-size:24pt; font-weight:bold">用户协议</text>
+  </view>
+  <view style="font-size:12pt; line-height:108%; margin:0pt 0pt 8pt; text-indent:20pt">
+    <text style="font-family:等线; font-size:12pt">本微信</text>
+    <text style="font-family:等线; font-size:12pt">小程序是指小程序名为“霹雳购P</text>
+    <text style="font-family:等线; font-size:12pt">rego</text>
+    <text style="font-family:等线; font-size:12pt">”的小程序。是由</text>
+    <text style="font-family:等线; font-size:12pt">池州诺彼电子商务</text>
+    <text style="font-family:等线; font-size:12pt">有限公司独立开发、运营</text>
+    <text style="font-family:等线; font-size:12pt">的微信小</text>
+    <text style="font-family:等线; font-size:12pt">程序平台。</text>
+  </view>
+  <view style="font-size:12pt; line-height:108%; margin:0pt 0pt 8pt; text-indent:20pt">
+    <text style="font-family:等线; font-size:12pt">本公司</text>
+    <text style="font-family:等线; font-size:12pt">在此提别提醒</text>
+    <text style="font-family:等线; font-size:12pt">用户认真阅读、充分理解本协议各条款，特别是其实所涉及的免除、限制本公司责任的条款、争议解决和法律适用等，请用户审慎阅读并选择接受或不接受本协议（未成年人应在监护人陪同下阅读）。除非用户接受本协议条款，否则用户无权使用本公司于协议下所提供的服务，并同意接受其约束。本协议适用于小程序的用户（以下简称“用户”、“您”）。若您使用网站（包括但不限于以任何形式接通、进入、浏览网站，或者使用网站的各项服务、功能等），您的使用行为将被视为对本用户协议全部内容的知晓、认可并同意遵守</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt 36pt; text-indent:-36pt">
+    <text style="font-family:等线; font-size:16pt">1、</text>
+    <text style="font:7.0pt 'Times New Roman'"> </text>
+    <text style="font-family:等线; font-size:16pt">接受</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">1.1当用户您使用小程序时，您已经完全知晓、认可并同意遵守本协议中的条款选择访问或使用本网站有关服务，将视为同意接受本协议全部条款的约束。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">1.2小程序有权在必要时更新本协议。小程序保留对小程序结构、服务、功能等进行调整的权利。除非特别声明，新功能、新服务将适用本协议。无论本协议的每次更新还是服务内容的调整，都会在小程序内及时发布，无需另行通知您并立即生效。如果</text>
+    <text style="font-family:等线; font-size:11pt">您拒绝</text>
+    <text style="font-family:等线; font-size:11pt">接受新的服务或服务，您必须立即放弃使用小程序，若您继续使用小程序</text>
+    <text style="font-family:等线; font-size:11pt">，则表明您已经完全知晓、认可同意遵守新的协议或者服务，除非另有明确规定，本小程序所推出的新产品、新功能和新服务，均无条件的适用本协议。本网站保留在任何时候修改本协议条款的权利，且无需另行通知。用户在使用服务时应该关注并遵守</text>
+  </view>
+  <view style="font-size:15pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:15pt; font-weight:bold"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">2</text>
+    <text style="font-family:等线; font-size:16pt">、 </text>
+    <text style="font-family:等线; font-size:16pt">用户</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">2</text>
+    <text style="font-family:等线; font-size:11pt">.1 </text>
+    <text style="font-family:等线; font-size:11pt">符合下列条件之一的个人、组织才能成为本程序的用户：</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">2.1.1</text>
+    <text style="font-family:等线; font-size:11pt"> </text>
+    <text style="font-family:等线; font-size:11pt">是在中国大陆依法设立、有效</text>
+    <text style="font-family:等线; font-size:11pt">存续且</text>
+    <text style="font-family:等线; font-size:11pt">合法的自然人、法人及其他组织。若您不具备此资格，请不要使用本程序，用户应当具备使用本程序和/或在本购物程序购买商品、享受服务的完全民事能力，并承诺对相关行为承当相应法律责任。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">2.2不具备上述资格的人不得成为程序用户。公司一经发现，有权立即注销该用户</text>
+    <text style="font-family:等线; font-size:11pt">并程序</text>
+    <text style="font-family:等线; font-size:11pt">有权禁止被注销取消用户资格的自然人、法人及其他组织再次使用网站。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt 18pt">
+    <text style="font-family:等线; font-size:16pt">3、</text>
+    <text style="font-family:等线; font-size:16pt">注册条款</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">3.1若您使用程序过程中注册成为会员，您必须同意用户可以通过本程序免费注册账号使用本程序提供的各项服务，注册时应根据程序的要求，提供真实、准确、即时、完整的个人信息；。包括但不限于您的姓名或名称、联系地址、联系电话、电子邮箱等</text>
+    <text style="font-family:等线; font-size:11pt">;</text>
+    <text style="font-family:等线; font-size:11pt">。如因注册信息不真实而引起的问题由用户本人承担，本程序不负任何责任并有权暂停或终止用户的账号。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">3</text>
+    <text style="font-family:等线; font-size:11pt">．2注册成功后，用户将获得账号</text>
+    <text style="font-family:等线; font-size:11pt">及其密码，作为您在本程序交易及享受服务时唯一的身份标识。用户需自行妥善保管</text>
+    <text style="font-family:等线; font-size:11pt">帐户</text>
+    <text style="font-family:等线; font-size:11pt">和密码，不得将自身的账号转让、转借给</text>
+    <text style="font-family:等线; font-size:11pt">其他第三</text>
+    <text style="font-family:等线; font-size:11pt">人使用，对该账号极其密码负保管义务，经对此引起的纠纷、损失和法律责任担则。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">3.2如用户代表其他自然人、法人或其他组织在本程序上注册会员、则需声明并保证已获得授权并有权使前述法律主体受本协议的约束。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">4、</text>
+    <text style="font-family:等线; font-size:16pt">使用条款</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4．1使用本程序时，用户须遵守国家的法律法规和规章制度，遵守网站有关协议、规定、规则、程序和惯例，不得利用本程序从事任何非法或不正当活动。用户不得在本网站发布耕种各类违法信息，包括但不限于商品信息、交易信息、社区帖子、商品留言，评价内容等。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4.2用户</text>
+    <text style="font-family:等线; font-size:11pt">确提供</text>
+    <text style="font-family:等线; font-size:11pt">的注册信息等资料系真实、准确、完整、合法，该资料包括但不限于真实姓名或名称、身份证号、联系电话、地址、邮政编码等；用户也应在相关资料实际变更时，予以及时更新。本公司对用户提供的信息予以保密。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4.3用户有权根据本协议的规定以及本程序</text>
+    <text style="font-family:等线; font-size:11pt">发布的相关规则在本程序上查询商品信息、发表用户体验、参与商品讨论、邀请关注好友、上</text>
+    <text style="font-family:等线; font-size:11pt">传商品</text>
+    <text style="font-family:等线; font-size:11pt">图片、参加各类活动，以及享受本程序提供的其它服务。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4.4用户由义务在注册及享受服务、购买商品时提供真实详、准确的资料/信息（包括但不限于电子邮箱地址、联系电话、联系地址、邮政编码等），并保证资料/信息的及时、有效更新，使得本程序可以通过</text>
+    <text style="font-family:等线; font-size:11pt">上述联系</text>
+    <text style="font-family:等线; font-size:11pt">方式与用户本人进行联系。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4.5用户注册使用本程序“信用消费”栏目时，本程序将根据用户个人情况提供信用评级，给予用户一定的“预消费额度”，用户需要在本程序制定的预付款周期内</text>
+    <text style="font-family:等线; font-size:11pt">支付已预购商品费用或在预付款周期结束前退还本身货物，若用户未能按本协议及时完成上述两项操作之一，或用户没有妥善保管货物造成货物的遗失、损坏，本程序有权要求用户按商品标价支付费用，或对用户按照相关法律法规提起诉讼，用户亦将担负相应的法律责任。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4.6本程序有权审核、发布或删除会员提交的信息。网站将尽力核查会员提交的信息，但不能完全保证信息的真实性、准确性和合法性，同时也不承担由此引至的任何法律责任。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4.7本程序含有与其他网站或程序的连接。但并不能控制这些网站及其提供的资源，对连接网站上的内容、广告、服务、产品信息的真实性、准确、即时、完整性不做任何承诺，并且对链接网站不承担相应法律责任</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">4.8</text>
+    <text style="font-family:等线; font-size:11pt">若用户违反本协议规定，或违反国家及地方法律法规之行为，本程序有权停止传输并删除相关信息，屏蔽/禁止用户的发表、使用，注销</text>
+    <text style="font-family:等线; font-size:11pt">帐户</text>
+    <text style="font-family:等线; font-size:11pt">，如有比要可依法向相关主管部门披露。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt 18pt; text-indent:-18pt">
+    <text style="font-family:等线; font-size:16pt">5、</text>
+    <text style="font:7.0pt 'Times New Roman'"> </text>
+    <text style="font-family:等线; font-size:16pt">商品交易流程及相关</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5.1用户同意遵守本网站实行的“购物指南”约定，</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5.2</text>
+    <text style="font-family:等线; font-size:11pt"> </text>
+    <text style="font-family:等线; font-size:11pt">本网站有权在发现其网站显现的商品和/或订单有明显错误或缺货的情况下，单方面撤回或修改该等信息。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5.3购物程序保留对商品订购的数量的限制权，包括但不限于有权对每一账户最高购买数量及商品总数进行限制与修改。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5．4购物程序对商品自主定价（价目表并不构成要约），并尽力保证您所购买商品与网站上公布的价格一致。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5.5购物程序已明示了商品产品的价格（含税、含包装，特殊情况除外）、可获性和相关信息。这类信息将随时更改无须发送任何通知。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5</text>
+    <text style="font-family:等线; font-size:11pt">.6</text>
+    <text style="font-family:等线; font-size:11pt">配送</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5.6.1商品配送产生的配送费用将根据用户选择的送货方式不同而另行结算。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5.6.2本程序根据用户指定的收获地址进行商品配送；程序上列出的送货时间系根据库存状况、正常处理流程和收货地址范围等信息估算，仅供用户参考，不作为对用户到货时间的承诺</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">5.6.3本程序确实了用户订单后，由于供货商提价，税额变化，程序系统错误等意外情况而造成了价格变化，用户有权取消订单，并应及时通过电子邮件或</text>
+    <text style="font-family:等线; font-size:11pt">电话通知网站的客户服务部。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt 36pt; text-indent:-36pt">
+    <text style="font-family:等线; font-size:11pt">5.6.4</text>
+    <text style="font:7.0pt 'Times New Roman'"> </text>
+    <text style="font-family:等线; font-size:11pt">用户所订购的商品发生缺货，用户有权取消订单。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">6、</text>
+    <text style="font-family:等线; font-size:16pt">退换货及退款规则</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">6.1用户同意遵守本网站实行的“售后服务”约定。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">6.2本程序保留对商品退换货的解释权和限制权。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">6.3换货商品缺货或退货时产生的现金款项，退还方式根据支付方式包括但不限于以下形式：</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">A</text>
+    <text style="font-family:等线; font-size:11pt">、网上支付的订单，退款退还至用户微信</text>
+    <text style="font-family:等线; font-size:11pt">帐户</text>
+    <text style="font-family:等线; font-size:11pt">中</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">6.4用户在享受“信用消费”栏目时，在收到货物的第一时间自检货物实际到达情况，如有疑问需当即与工作人员协调沟通，用户未有疑问即视为用户已完成收货。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">6.5用户在使用“信用消费”栏目时，如需退货需退还本身货物并保证货物的完整性，若有损坏本程序</text>
+    <text style="font-family:等线; font-size:11pt">有权拒绝接受本类商品退货情况。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">7、</text>
+    <text style="font-family:等线; font-size:16pt">纠纷、争议及投诉处理</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">7.1用户在使用网站的过程中，发现可能有侵害自己权利事实时，应及时通知本程序并提供相应的证明材料。因投诉不实给本程序或第三方造成损失的，应承担法律责任。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">7.2本程序有权接受处理用户间因使用网站而产生的纠纷、争议及投诉，有权通过各种方式了解情况，并将所了解的情况通过各种方式通知对方。用户有义务在收到本程序通知后，在指定时间提供相应资料，配合纠纷、争议</text>
+    <text style="font-family:等线; font-size:11pt">及投诉情况了解与处理。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">7.3经生效法律文书确认用户存在违法或违反本协议行为或者程序自行判断会员存在涉嫌违法或违反本协议行为的，本程序有权公布用户的违法行为并</text>
+    <text style="font-family:等线; font-size:11pt">作出</text>
+    <text style="font-family:等线; font-size:11pt">相应处理，包括但不限于终止服务、永久禁止使用网站等。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">7.4用户如因违反本协议造成纠纷，本程序有权向</text>
+    <text style="font-family:等线; font-size:11pt">池州市</text>
+    <text style="font-family:等线; font-size:11pt">贵池区当地人民法院提起诉讼，违反协议方需承担因此造成的全部费用包括但不限于诉讼费、律师费以及本程序针对案件安排的人员工资时</text>
+    <text style="font-family:等线; font-size:11pt">长费用</text>
+    <text style="font-family:等线; font-size:11pt">等。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">8、</text>
+    <text style="font-family:等线; font-size:16pt">中止与终止</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">对于用户以下行为，网站有权未告知情况下中止或终止其相关服务或拒绝其以任何形式使用网站，并保留</text>
+    <text style="font-family:等线; font-size:11pt">追究您</text>
+    <text style="font-family:等线; font-size:11pt">法律责任的权利：</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.1用户同意，本网站有权随时对网站、政策和/或本协议</text>
+    <text style="font-family:等线; font-size:11pt">作出</text>
+    <text style="font-family:等线; font-size:11pt">变更；任何修改或补充在其张贴在程序时立即生效，对双方都有约束力。重大变更将在网站首页提示。用户继续使用网站、购买商品、享受服务的，即视为对该等变更之确认。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.2如发生下列任何一种情形，网站有权无需通知而随时停止向用户提供服务：</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">A</text>
+    <text style="font-family:等线; font-size:11pt">、用户提供的资料不真实</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">B、用户违反本协议规定；</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">C、按照行政机关和/或授权职能部门的要求</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">D、</text>
+    <text style="font-family:等线; font-size:11pt">其他本程序认为需终止服务的情况。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.3利用本网站滥发重发信息，发布国家法律法规等禁止或限制发布的信息，发布不属于会员经营范围的信息，或与程序服务无关的信息；</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.</text>
+    <text style="font-family:等线; font-size:11pt">4冒用他人或其他企业名义发布商业信息，进行商业活动</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.5计划破坏、攻击网站电脑系统、网络的完整性，或者试图擅自进入本程序电脑系统，网络；</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.7盗用他人在程序上的登录名和/或密码；未经网站同意的账号出售或授权使用行为；通过从事涉及本程序的欺诈活动，通过或从事涉及网站的知识产品侵权行为；</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.8违反法律法规、规章制度、本程序有关协议、规定、规则、程序和惯例的其他行为。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.9本协议终止或更新时，用户未确认新的协议的。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">8.10其他本公司认为需终止服务的情况。</text>
+    <text style="font-family:等线; font-size:11pt"> </text>
+    <text style="font-family:等线; font-size:11pt"> </text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">9、</text>
+    <text style="font-family:等线; font-size:16pt">责任声明</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">9.1鉴于网络服务的特殊性，网站不对除基本安全、稳定以外的其他外部干扰、黑客攻击等因素造成的用户服务器之间的连接受阻而无法访问负责。用户同意自己承担因网站意外中断、操作或传输延迟、电脑病毒、网络连接故障、未经授权的进入等引起的损失。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">9.2 因不可抗力或者其他意外事件，使得本协议的履行不可能、不必要或者无意义的，双方均不承担责任。本合同所称之不可以抗力意指不能预见、不能避免并不能克服的客观情况，包括但不限于战争、台风、水灾、火灾、雷击或地震、罢工、暴动、法定疾病、黑客攻击、网络病毒、电信部门技术管制政府行为或任何其它自然人为造成的灾难等客观情况。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">9.3本</text>
+    <text style="font-family:等线; font-size:11pt">程序</text>
+    <text style="font-family:等线; font-size:11pt">无法保证网络信息服务的准确性，对用户使用网站而造成的损失不负法律责任</text>
+    <text style="font-family:等线; font-size:11pt">。用户可通过本网站有关服务获得第三方的某些内容或通往第三方网站的连接，但不表示本程序与这些第三方有任何关系。第三方的</text>
+    <text style="font-family:等线; font-size:11pt">网站均</text>
+    <text style="font-family:等线; font-size:11pt">由各经营者自行负责，不属于本网站控制及负责范围之内。对于存在或来源于此类网站或资源的任何内容、广告、产品或其他资料，本网站对此不作保证，不承担任何责任、也不负任何义务。用户对此自行加以判断，并承担使用该等内容而引起的所有风险，包括不限于因对内容的正确性、完整性或实用性的依赖而产生您的风险。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">9.4</text>
+    <text style="font-family:等线; font-size:11pt"> </text>
+    <text style="font-family:等线; font-size:11pt">用户明确同意其使用本程序服务所存在的风险极其后果将由其自己有承担，网站对用户不承担任何责任。如因用户违反有关法律、法规或本协议项下的任何条款而给网站或者第三人造成损失，用户同意由此造成的损害赔偿责任。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">10、</text>
+    <text style="font-family:等线; font-size:16pt">知识</text>
+    <text style="font-family:等线; font-size:16pt">产权</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">10.1本程序及本程序网站所有选材、整理、编排、排榜、汇编，以及由网站</text>
+    <text style="font-family:等线; font-size:11pt">创作的文字、图片等作品的著作权，无论是否明示，均属网站所有。任何自然人、法人及其组织未经网站书面授权或许可，不得修改、出版、传播、</text>
+    <text style="font-family:等线; font-size:11pt">参与传播、销售、制作衍生作品，或与其他任何方式使用整体或部分的网站上的内容，包括但不限于公司信息、产品信息，网站将保留追究其法律责任的权利。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">10.2未经网站授权，任何人不得使用网站任何商标、服务标记、标识、域名和其他显著品牌特征的权利。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">10.3用户不得以他人资料信息在本网站进行注册和购买商品。不应当将账号、密码转让或借予他人使用。若发现用户账号遭他人非法使用，应当即通知网站。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">10.4用户同意接受本网站通过电子邮件、王爷或其他合法方式向用户发送商品促销或其他相关商业信息。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">10.5本网站及本网站所有内容均受《中华人民共和国著作权法》</text>
+    <text style="font-family:等线; font-size:11pt">、,《中华人民共和国商标法》等的法律保护。用户在本网站上发布的信息不得侵犯任何第三人的知识产权，未经相关权利人之事先书面同意，用户不得以任何方式上传、发布、修改、传播或复制任何受著作权保护的材料、商标或属于其他人的专有信息。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt"></text>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">11、</text>
+    <text style="font-family:等线; font-size:16pt">法律适用及管辖</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">11.1本协议的订立、变更、执行、和解释及争议的解决，均应适用中华人民共和国法律。如与本协议有关的某一特定事项缺乏明确法律规定，则应参照通用的国际惯例和行业惯例。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">11.2因本协议内容或其执行发生争议，双方应友好协商解决；协商不成时，任何一方均可向公司经营所在地的人民法院提起诉讼。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <view style="font-family:等线; font-size:11pt"></view>
+  </view>
+  <view style="font-size:16pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:16pt">12、</text>
+    <text style="font-family:等线; font-size:16pt">其他</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">12.1用户使用网站相关服务时。亦应知晓、认可并同意遵守相关服务的额外条款及条件。</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">12.2如本协议中的任何条款无论因各种原因完全或部分无效或不具有执行力，本协议的其余条款</text>
+    <text style="font-family:等线; font-size:11pt">仍有效并具有约束力</text>
+  </view>
+  <view style="font-size:11pt; line-height:108%; margin:0pt 0pt 8pt">
+    <text style="font-family:等线; font-size:11pt">12.3本协议之条款是可分割的，任何协议条款被认定无效或不可执行时，不影响其他条款之效力。</text>
   </view>
 
-  <view>4、 用户的帐号、密码和安全性 一旦成功注册成为会员，您将有一个密码和用户名。 用户将对用户名和密码的安全负全部责任。另外，每个用户都要对以其用户名进行的所有活动和事件负全责。您可以随时改变您的密码。 用户若发现任何非法使用用户帐号或存在安全漏洞的情况，请立即通告本公司。
-  </view>
-
-  <view>5、拒绝提供担保 用户明确同意使用本公司服务，由用户个人承担风险。 本程序不担保服务一定满足用户的要求，也不担保服务不会中断，对服务的及时性、安全性、出错发生都不作担保。 用户理解并接受：任何通过服务取得的信息资料的可靠性有用性取决于用户自己的判断，用户自己承担所有风险和责任。
-  </view>
-
-  <view>6、有限责任 本程序对任何由于使用服务引发的直接、间接、偶然及继起的损害不负责任。 这些损害可能来自（包括但不限于）：不正当使用服务，或传送的信息不符合规定等。
-  </view>
-
-  <view>7、对用户信息的存储和限制 本程序不对用户发布信息的删除或储存失败负责，本公司有判定用户的行为是否符合服务条款的要求和精神的保留权利。如果用户违背了服务条款的规定，有中断对其提供服务的权利。
-  </view>
-
-  <view>8、结束服务 本程序可随时根据实际情况中断一项或多项服务，不需对任何个人或第三方负责或知会。 同时用户若反对任何服务条款的建议或对后来的条款修改有异议，或对服务不满，用户可以行使如下权利： (1) 不再使用本公司的服务。 (2) 通知本公司停止对该用户的服务。</view>
-
-  <view>9、信息内容的所有权 本公司的信息内容包括：文字、软件、声音、相片、录象、图表；以及其它信息，所有这些内容受版权、商标、标签和其它财产所有权法律的保护。 用户只能在授权下才能使用这些内容，而不能擅自复制、再造这些内容、或创造与内容有关的派生产品。
-  </view>
-
-  <view>10、隐私保护条款 本程序将严格保守用户的个人隐私，承诺未经过您的同意不将您的个人信息任意披露。 但在以下情形下，我们将无法再提供您前述保证而披露您的相关信息。这些情形包括但不限于： * 为了您的交易顺利完成，我们不得不把您的某些信息，如您的姓名、联系电话、e-mail等提供给相关如物流服务方，以便于他们及时与您取得联系，提供服务。 * 当您在本网站的行为违反的服务条款，或可能损害他人权益或导致他人遭受损害，只要我们相信披露您的个人资料是为了辨识、联络或采取法律行动所必要的行动时。 * 法律法规所规定的必须披露或公开的个人信息。
-    * 当司法机关或其它有权机关依法执行公务，要求提供特定个人资料时，我们必须给予必要的配合。</view>
-
-  <view>11、适用法律 上述条款将适用中华人民共和国的法律，所有的争端将诉诸于本网所在地的人民法院。 如发生服务条款与中华人民共和国法律相抵触时，则这些条款将完全按法律规定重新解释，而其它条款则依旧保持约束力。
-  </view>
-  <view  style="display:flex;justify-content: center;">
+  <view style="display:flex;justify-content: center;">
     <image src='/images/icon/apple.png'></image>
   </view>
-  <view  style="display:flex;justify-content: center;">扫码联系客服</view>
+  <view style="display:flex;justify-content: center;">扫码联系客服</view>
 </view>

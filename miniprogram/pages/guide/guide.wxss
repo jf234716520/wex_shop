@@ -31,23 +31,29 @@
 }
 .chkbox{
   position: absolute;
+  font-size: 18px;
   left: 90px;
+  height: 40px;
+  width: 250px;
   display: flex;
-  align-items: center;
-  justify-content: center;  
-  width: 10%;
-  height: 90%;
+
+}
+.chkbox checkbox{
+
+display: flex;
+margin-left: 0px;
+text-align: center;
+align-items: center;
+justify-content: center; 
 }
 .btn_tk{
 display: flex;
-
-margin-left: 15px;
 text-align: center;
 justify-content: center;  
-
+align-items: center;
 }
 
-.btn_tk button{background-color: #FEF33F}
+.btn_tk button{  font-size: 20px;background-color: #FEF33F}
 .btn_tk button::after{border: 0}
 .bottom-right{
   position: absolute;

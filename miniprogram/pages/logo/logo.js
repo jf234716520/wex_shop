@@ -19,13 +19,6 @@ Page({
    
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-   
-   
-  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -35,8 +28,8 @@ Page({
     
     let that = this;
     setTimeout(function () {
-      that.getOpenid();
-    }, 2000)
+      that.getOpenid()
+    }, 1500)
     
   },
 
@@ -59,17 +52,16 @@ Page({
         //判断用户是否初次使用小程序
         app.getInfoWhereInOrder("customers", { "openid": openid }, "openid", "asc", function (e) {
           //用户首次使用
-          if (e.result.data.length==0){
+          console.log(e)
+          if (e.result.data.length == 0 ||e.result.data[0].hasRead==false){
             //customers表添加用户openid
-            app.addRows("customers", { openid: app.globalData.openid ,xypay:{status:-1,amt:0,fileArr:[]}},function(e2){
-              console.log("欢迎使用小程序");
+            if (e.result.data.length == 0){
+              app.addRows("customers", { hasRead: false, openid: app.globalData.openid, xypay: { status: -1, amt: 0, fileArr: [] } }, function (e2) {})
+            }
+            wx.navigateTo({
+              url: '../guide/guide',
             })
             
-            if (e.result.data.length == 0) {
-              wx.navigateTo({
-                url: '../guide/guide',
-              })
-            }
           } else {
             wx.switchTab({
               url: '../homepage/homepage',

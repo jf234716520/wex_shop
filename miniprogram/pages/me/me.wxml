@@ -1,63 +1,70 @@
 <view class="main">
-    <view class="header" >
-        <!-- <image src="{{thumb}}" class="thumb"></image> -->
-        <view class="thumb">
-          <open-data type="userAvatarUrl"></open-data>
-        </view>
-        <view class='nickname'>
-          <open-data type="userNickName"></open-data>
-          <view class="xypay"  bindtap='applyXy'>我的额度：{{xypayShow}}</view>
-        </view>
-        
-        <!-- <text class="nickname">{{nickname}}</text> -->
+  <view class="header">
+    <!-- <image src="{{thumb}}" class="thumb"></image> -->
+    <view class="thumb">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class='nickname'>
+      <open-data type="userNickName"></open-data>
+      <view class="xypay" bindtap='applyXy'>我的额度：{{xypayShow}}</view>
     </view>
 
-    <!-- 后台管理 -->
-    <view class="bgInfo {{openid}}" bindtap='goToBgInfo' hidden="{{!(isAdmin >= 0)}}">后台管理</view>
+    <!-- <text class="nickname">{{nickname}}</text> -->
+  </view>
 
-    <!-- 订单管理 -->
-    <view class="bgInfo {{openid}}" bindtap='goToBgManage' hidden="{{!(isAdmin >= 0)}}">订单管理</view>
+  <!-- 后台管理 -->
+  <view class="bgInfo {{openid}}" bindtap='goToBgInfo' hidden="{{!(isAdmin >= 0)}}">后台管理</view>
 
-    <!-- 订单管理 -->
-    <view class="bgInfo {{openid}}" bindtap='goToXyList' hidden="{{!(isAdmin >= 0)}}">额度审批</view>
+  <!-- 订单管理 -->
+  <view class="bgInfo {{openid}}" bindtap='goToBgManage' hidden="{{!(isAdmin >= 0)}}">订单管理</view>
 
-    <view class="bgInfo {{openid}}" bindtap='goToSwiper' hidden="{{!(isAdmin >= 0)}}">轮播图</view>
-    <!-- 地址管理 -->
+  <!-- 订单管理 -->
+  <view class="bgInfo {{openid}}" bindtap='goToXyList' hidden="{{!(isAdmin >= 0)}}">额度审批</view>
+
+  <view class="bgInfo {{openid}}" bindtap='goToSwiper' hidden="{{!(isAdmin >= 0)}}">轮播图</view>
     <view class="address-box">
-        <view class="address-manage">
-            <navigator url="/pages/address/address">地址管理</navigator>
-        </view>
-        <view wx:if="{{hasAddress}}" class="address-list">
-            <view>姓名：{{userInfo.name}}</view>
-            <view>电话：{{userInfo.phone}}</view>
-            <view>地址：{{userInfo.addressd}}</view>
-        </view>
+    <view class="address-manage">
+    <navigator url="/pages/guide/showtk">条款与帮助</navigator>
     </view>
+  </view>
+  <!-- 地址管理 -->
+  <view class="address-box">
+    <view class="address-manage">
+      <navigator url="/pages/address/address">地址管理</navigator>
+    </view>
+    <view wx:if="{{hasAddress}}" class="address-list">
+      <view>姓名：{{userInfo.name}}</view>
+      <view>电话：{{userInfo.phone}}</view>
+      <view>地址：{{userInfo.addressd}}</view>
+    </view>
+  </view>
 
-    <!-- 我的订单 -->
-    <view class="orders-box">
-        <view class="orders">我的订单</view>
-        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
 
-            <view class="orders-number" wx:if="{{item.isFinished==0}}">订单状态：配送中</view>
-            <view class="orders-number" wx:if="{{item.isFinished==1}}">订单状态：已送达</view>
+  <!-- 我的订单 -->
+  <view class="orders-box">
+    <view class="orders">我的订单</view>
+    <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+
+      <view class="orders-number" wx:if="{{item.isFinished==0}}">订单状态：配送中</view>
+      <view class="orders-number" wx:if="{{item.isFinished==1}}">订单状态：已送达</view>
 
             <view class="orders-number" wx:if="{{item.isPay==0}}">未支付(点击支付)</view>
             <view class="orders-number" wx:if="{{item.isFinished==1}}">已支付</view>
 
-            <view class="orders-number" wx:if="{{item.isPay==0}}&&{{item.order_type==2}}">剩余时间：{{item.leftDay}}天</view>
+      <view class="orders-number" wx:if="{{item.isPay==0}}&&{{item.order_type==2}}">剩余时间：{{item.leftDay}}天</view>
 
-            <view class="orders-number">下单时间：{{item.create_time}}</view>
-            <view class="orders-number" wx:if="{{item.isFinished==1}}">送达时间：{{item.finishedTime}}</view>
 
-            <view style='padding:15rpx 0;'>
-              <view wx:for="{{item.order}}" wx:for-item="good" wx:key="fruit">{{good.good_name}} × {{good.num}}</view>
-            </view>
-                
-            <view class="orders-footer">
-                <text>总价：￥{{item.price}}</text>
-            </view>
-        </view>
+      <view class="orders-number">下单时间：{{item.create_time}}</view>
+      <view class="orders-number" wx:if="{{item.isFinished==1}}">送达时间：{{item.finishedTime}}</view>
+
+      <view style='padding:15rpx 0;'>
+        <view wx:for="{{item.order}}" wx:for-item="good" wx:key="fruit">{{good.good_name}} × {{good.num}}</view>
+      </view>
+
+      <view class="orders-footer">
+        <text>总价：￥{{item.price}}</text>
+      </view>
     </view>
-    <!-- <view class='fix-view'></view> -->
+  </view>
+  <!-- <view class='fix-view'></view> -->
 </view>
