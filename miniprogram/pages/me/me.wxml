@@ -42,7 +42,7 @@
             <view class="orders-number" wx:if="{{item.isFinished==0}}">订单状态：配送中</view>
             <view class="orders-number" wx:if="{{item.isFinished==1}}">订单状态：已送达</view>
 
-            <view class="orders-number" wx:if="{{item.isPay==0}}">未支付</view>
+            <view class="orders-number" wx:if="{{item.isPay==0}}">未支付(点击支付)</view>
             <view class="orders-number" wx:if="{{item.isFinished==1}}">已支付</view>
 
             <view class="orders-number" wx:if="{{item.isPay==0}}&&{{item.order_type==2}}">剩余时间：{{item.leftDay}}天</view>

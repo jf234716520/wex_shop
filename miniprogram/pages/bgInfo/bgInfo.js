@@ -1,4 +1,4 @@
-// miniprogram/pages/bgInfo/bgInfo.js
+    // miniprogram/pages/bgInfo/bgInfo.js
 const app = getApp()
 
 Page({

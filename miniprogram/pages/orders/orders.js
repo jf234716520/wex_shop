@@ -72,18 +72,12 @@ Page({
   getTotalPrice() {
     var orders = app.globalData.carts; 
     let total1 = 0;
-    let total2 = 0;
     for (let i = 0; i < orders.length; i++) {
       //临期商品总价
-      if(orders[i].sel&&orders[i].good_type=='1'){
-        total1 += orders[i].num * orders[i].good_price;
-      }else{
-        total2 += orders[i].num * orders[i].good_price;
-      }
+        total1 += orders[i].num * orders[i].good_price;   
     }
     this.setData({
-      total1: total1.toFixed(2),
-      total2: total2.toFixed(2),
+      total1: total1.toFixed(2)
     })
     
   },
@@ -106,7 +100,8 @@ Page({
   // -------------!! 支付！！------------------
   toPay() {
     var that = this
-    if (that.data.hasAddress) {
+    
+    if (that.data.address.addressd!=undefined) {
 
       // ------获取prepay_id，所需的签名字符串------
       var p = new Promise((resolve,reject)=>{
@@ -116,8 +111,8 @@ Page({
       // -----生成字符串------
       var stringA = 
         "appid="+app.globalData.appid
-      + "&attach=test"
-      + "&body=JSAPItest"
+      + "&attach=小程序"
+      + "&body=霹雳购网上商城-付款"
       + "&device_info=WEB"
       + "&mch_id="+app.globalData.mch_id
       + "&nonce_str="+that.data.nonce_str
@@ -127,7 +122,7 @@ Page({
       + "&spbill_create_ip="+that.data.spbill_create_ip
       + "&time_expire="+app.beforeNowtimeByMin(-15)
       + "&time_start="+app.CurrentTime()
-      + "&total_fee="+parseInt(that.data.total*100)
+      + "&total_fee="+parseInt(that.data.total1*100)
       + "&trade_type=JSAPI";
 
       var stringSignTemp = stringA +"&key="+app.globalData.apikey
@@ -139,39 +134,6 @@ Page({
       var openid = that.data.openid
 
       resolve([sign,openid,out_trade_no])
-
-      // ------生成订单信息-------
-      let tmp = that.data.address
-      tmp['schoolName'] = app.globalData.school_Arr[that.data.address['schoolName']]
-      tmp['addressItem'] = app.globalData.address_Arr[that.data.address['addressItem']]
-      tmp['orderTime'] = app.CurrentTime_show()
-      tmp['orderSuccess'] = true
-      tmp['payTime'] = ''
-      tmp['paySuccess'] = false
-      tmp['sending'] = false
-      tmp['finished'] = false
-
-      const order_master = tmp
-
-      var tmpList = []
-      that.data.orders.forEach((val,idx,obj)=>{
-        tmpList.push([val.name, val.num, val.price])
-      })
-      order_master['fruitList'] = tmpList
-      order_master['total'] = that.data.total
-      order_master['openid'] = that.data.openid
-      order_master['out_trade_no'] = out_trade_no
-
-
-      console.log(order_master)
-      that.setData({
-        address: order_master
-      })
-
-      // 上传数据库
-      app.addRowToSet('order_master', order_master,e=>{
-        console.log("订单状态已修改：【订单生成】"+e)
-      })
 
       })
       p.then(e => {

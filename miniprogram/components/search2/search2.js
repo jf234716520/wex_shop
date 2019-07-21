@@ -43,21 +43,29 @@ Component({
         });
         return;
       };
-      app.getInfoWhere('goods_list', { good_name : myWord, good_type : "2"},
-        e => {
-          if (e.data.length <= 0){
+
+      wx.cloud.callFunction({
+        name: 'regexpSearch',
+        data: {
+          setName: 'goods_list',
+          good_name: myWord,
+          good_type: "1"
+        },
+        complete: function (e) {
+          if (e.data.length <= 0) {
             wx.showToast({
               title: '没有喔~',
             })
           }
-          else{
+          else {
             getCurrentPages()["0"].setData({
-              goodInfo: e.data,
+              goodInfo: e.result.data,
               activeTypeId: -1
             })
           }
         }
-      )
+      })
+     
       
     }
     

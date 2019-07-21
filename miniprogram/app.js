@@ -23,8 +23,8 @@ App({
       admin:["preGo"],
       openId: null,
       appid: 'wx03e733311b1c2bc9',
-      mch_id: '1519277861',
-      apikey: 'James487493259359826923695832443',
+      mch_id: '1544654281',
+      apikey: 'xiajibashedekeyxiajibashedekey12',
       offLine:false,
       school_Arr: [
         "交大",
@@ -197,7 +197,19 @@ App({
       }
     })
   },
-
+  
+  regexpSearch: function (setName, condition,callback) {
+    wx.cloud.callFunction({
+      name: 'select',
+      data: {
+        setName: setName,
+        condition: condition
+      },
+      complete: function (e) {
+        callback(e)
+      }
+    })
+  },
   // 排序后取出数据
   getInfoByOrder: function (setName, ruleItem, orderFuc,callback) {
     const db = wx.cloud.database()
