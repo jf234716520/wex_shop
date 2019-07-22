@@ -97,6 +97,10 @@ Page({
     })
   },
   
+  
+
+
+
   // -------------!! 支付！！------------------
   toPay() {
     var that = this
@@ -109,14 +113,15 @@ Page({
       var out_trade_no = (new Date().getTime() + app.RndNum(6)).toString()
 
       // -----生成字符串------
+      
       var stringA = 
         "appid="+app.globalData.appid
-      + "&attach=小程序"
-      + "&body=霹雳购网上商城-付款"
+      + "&attach=xcx"
+        + "&body=JSAPI"
       + "&device_info=WEB"
       + "&mch_id="+app.globalData.mch_id
       + "&nonce_str="+that.data.nonce_str
-      + "&notify_url=http://www.weixin.qq.com/wxpay/pay.php"
+        + "&notify_url=127.0.0.1"
       + "&openid="+that.data.openid
       + "&out_trade_no="+out_trade_no
       + "&spbill_create_ip="+that.data.spbill_create_ip
@@ -128,8 +133,6 @@ Page({
       var stringSignTemp = stringA +"&key="+app.globalData.apikey
       // 签名MD5加密
       var sign = md5.md5(stringSignTemp).toUpperCase()
-      // console.log("签名：" + stringSignTemp)
-      
       // openid
       var openid = that.data.openid
 
@@ -140,33 +143,32 @@ Page({
         // 生成获取prepay_id请求的xml参数
         var xmlData = '<xml>'+
           '<appid>'+app.globalData.appid+'</appid>'+
-          '<attach>test</attach>'+
-          '<body>JSAPItest</body>'+
+          '<attach>xcx</attach>'+
+          '<body>JSAPI</body>'+
           '<device_info>WEB</device_info>'+
           '<mch_id>'+app.globalData.mch_id+'</mch_id>' +
           '<nonce_str>'+that.data.nonce_str+'</nonce_str>' +
-          '<notify_url>http://www.weixin.qq.com/wxpay/pay.php</notify_url>' +
+          '<notify_url>127.0.0.1</notify_url>' +
           '<openid>'+that.data.openid+'</openid>'+
           '<out_trade_no>'+e[2]+'</out_trade_no>'+
           '<spbill_create_ip>'+that.data.spbill_create_ip+'</spbill_create_ip>'+
           '<time_expire>'+app.beforeNowtimeByMin(-15)+'</time_expire>'+
           '<time_start>'+app.CurrentTime()+'</time_start>'+
-          '<total_fee>'+parseInt(that.data.total * 100)+'</total_fee>'+
+          '<total_fee>'+parseInt(that.data.total1 * 100)+'</total_fee>'+
           '<trade_type>JSAPI</trade_type>'+
           '<sign>'+e[0]+'</sign>'+
           '</xml>'
 
         var tmpOutNum = e[2]
-        // console.log(xmlData)
-
         // 获取prepay_id,发送支付请求
-        wx.cloud.callFunction({
+       wx.cloud.callFunction({
           name:'pay',
           data:{
             xmlData:xmlData
           }
         })
         .then(res=>{
+          console.log(res)
           if(res){
             var prepay_id = res.result.body.split("<prepay_id><![CDATA[")[1].split("]]></prepay_id>")[0];
             var timeStamp = Math.round((Date.now() / 1000)).toString()
@@ -189,8 +191,6 @@ Page({
               signType: 'MD5',
               paySign: paySign,
               success: function (e) {
-                console.log(e)
-                // console.log(tmpOutNum)
                 app.getInfoWhere('order_master',{
                   'out_trade_no': tmpOutNum
                 },e=>{

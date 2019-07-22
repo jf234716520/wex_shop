@@ -12,6 +12,7 @@ exports.main = async (event, context) => {
 }
 
 const getPrepayIdPromise = function (event) {
+  
   return new Promise((resolve, reject) => {
     let options = {
       "url": 'https://api.mch.weixin.qq.com/pay/unifiedorder',
