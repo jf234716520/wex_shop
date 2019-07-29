@@ -71,7 +71,6 @@ Page({
   onShow: function() {
     var that = this;
     app.getInfoWhereInOrder('swiper_pic', { status: 1 },'status','desc',function(e){
-      console.log(e)
       that.setData({
         imgUrls:e.result.data
       })
@@ -89,16 +88,7 @@ Page({
       //console.log(that.data.activeTypeId)
       wx.hideLoading()
     })
-    // 是否下线
-    // app.getInfoWhere('setting', {
-    //     "option": "offLine"
-    //   },
-    //   e => {
-    //     that.setData({
-    //       offLine: e.data["0"].offLine
-    //     })
-    //   }
-    // )
+    
   },
 
 
@@ -111,7 +101,7 @@ Page({
     var isRepete = false;
     var good_v = null;
     app.globalData.carts.forEach(function(v) {
-      console.log(v);
+      
       console.log(e.currentTarget.dataset._id);
       if (v._id == e.currentTarget.dataset._id) {
         isRepete = true;
@@ -122,8 +112,10 @@ Page({
       app.globalData.carts[app.globalData.carts.indexOf(good_v)].num += 1;
     } else {
       var goodList = app.globalData.goodList;
+      console.log(e.currentTarget.dataset._id)
       goodList.forEach(function(v) {
         if (v._id == e.currentTarget.dataset._id) {
+          
           var good = v;
           good.num = 1;
           good.sel = false;
@@ -136,6 +128,7 @@ Page({
     wx.showToast({
       title: '已添加至购物车',
     });
+    console.log(app.globalData)
   },
 
 

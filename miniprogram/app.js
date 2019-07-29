@@ -26,6 +26,7 @@ App({
       mch_id: '1544654281',
       apikey: 'xiajibashedekeyxiajibashedekey12',
       offLine:false,
+      adiminArr: [],
       school_Arr: [
         "交大",
         "华师大"
@@ -193,6 +194,7 @@ App({
         orderFuc: orderFuc
       },
       complete: function(e){
+        console.log(e)
         callback(e)
       }
     })
@@ -206,7 +208,8 @@ App({
         condition: condition
       },
       complete: function (e) {
-        callback(e)
+        callback(e
+        )
       }
     })
   },

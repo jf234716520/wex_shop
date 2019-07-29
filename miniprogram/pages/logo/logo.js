@@ -15,6 +15,7 @@ Page({
 
     //初始化商品信息
     this.initGoods();
+    this.getManagerList();
     
    
   },
@@ -52,7 +53,7 @@ Page({
         //判断用户是否初次使用小程序
         app.getInfoWhereInOrder("customers", { "openid": openid }, "openid", "asc", function (e) {
           //用户首次使用
-          console.log(e)
+    
           if (e.result.data.length == 0 ||e.result.data[0].hasRead==false){
             //customers表添加用户openid
             if (e.result.data.length == 0){
@@ -71,4 +72,13 @@ Page({
       }
     })
   },
+  //获取管理员列表
+  getManagerList(){
+    app.getInfoWhereInOrder("manager_list", { "mark": "1" }, "mark", "asc",function(e){
+      for (var i = 0; i < e.result.data.length;i++){
+        app.globalData.adiminArr.push(e.result.data[i].openid);
+      }
+      
+    })
+  }
 })
