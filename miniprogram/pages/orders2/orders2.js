@@ -127,7 +127,7 @@ Page({
       for (var i = 0; i < e.result.data.length; i++) {
         var orderDateStr = e.result.data[i].create_time;
         var orderDate = new Date(orderDateStr.substr(0, 4), Number(orderDateStr.substr(4, 2))-1, orderDateStr.substr(6, 2));
-        if ((Date.parse(curDate) - Date.parse(orderDate)) > oneDayMill * 30) {
+        if ((Date.parse(curDate) - Date.parse(orderDate)) > oneDayMill * app.globalData.maxXyDay) {
             wx.showModal({
               title: 'Oh No',
               content: '有逾期的订单未支付~',
