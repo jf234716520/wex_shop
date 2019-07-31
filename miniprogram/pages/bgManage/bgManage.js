@@ -75,13 +75,13 @@ Page({
   getAllList:function(){
     var that = this
    
-    app.getInfoWhereInOrder('order_manage', { 'isFinished': '0' }, 'orderTime', 'desc', e => {
+    app.getInfoWhereInOrder('order_manage', { 'isFinished': 0 }, 'orderTime', 'desc', e => {
       console.log(e)
       that.setData({
         sendingList: e.result.data
       })
     })
-    app.getInfoWhereInOrder('order_manage', {'isFinished':'1'},'orderTime', 'asc', e => {
+    app.getInfoWhereInOrder('order_manage', {'isFinished':"1"},'orderTime', 'asc', e => {
       console.log(e)
       that.setData({
         orderList: e.result.data

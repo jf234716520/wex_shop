@@ -42,12 +42,12 @@
   <view class="weui-cells weui-cells_after-title">
     <view wx:for="{{sendingList}}" wx:key="pay" class='listItem'>
       <view class='f_column'>
-        <view>{{item.name}}</view>
-        <view>{{item.phone}}</view>
-        <view>{{item.address}}</view>
-        <view wx:for="{{item.goods}}" wx:key="good_id" wx:for-item="good">{{good.good_name}} × {{good.good_num}}</view>
-        <view>备注：{{item.remark}}</view>
-        <view>总价：￥{{item.total}}</view>
+        <view>{{item.address.name}}</view>
+        <view>{{item.address.phone}}</view>
+        <view>{{item.address.addressd}}</view>
+        <view wx:for="{{item.order}}" wx:key="good_id" wx:for-item="good">{{good.good_name}} × {{good.num}}</view>
+        <view>备注：{{good.remark}}</view>
+        <view>总价：￥{{item.price}}</view>
       </view>
 
       <view class='Btns'>
@@ -89,12 +89,12 @@
   <view class="weui-cells weui-cells_after-title">
     <view wx:for="{{orderList}}" wx:key="pay" class='listItem' wx:for-item="order">
       <view class='f_column'>
-        <view>{{order.name}}</view>
-        <view>{{order.phone}}</view>
-        <view>{{order.address}}</view>
-        <view wx:for="{{order.goods}}" wx:for-item="good">{{good.good_name}} × {{good.good_num}}</view>
-        <view>备注：{{order.remark}}</view>
-        <view>下单时间：{{order.orderTime}}</view>
+        <view>{{order.address.name}}</view>
+        <view>{{order.address.phone}}</view>
+        <view>{{order.address.addressd}}</view>
+        <view wx:for="{{order.order}}" wx:for-item="good">{{good.good_name}} × {{good.num}}</view>
+        <view>备注：{{good.remark}}</view>
+        <view>下单时间：{{order.create_time}}</view>
         <view>送达时间：{{order.finishedTime}}</view>
         <view>订单已完成</view>                   
       </view>

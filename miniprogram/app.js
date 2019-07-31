@@ -194,7 +194,6 @@ App({
         orderFuc: orderFuc
       },
       complete: function(e){
-        console.log(e)
         callback(e)
       }
     })
