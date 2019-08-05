@@ -76,7 +76,7 @@ Page({
     var openid = that.data.openid;
 
     app.getInfoWhereInOrder('customers', { "openid": openid  }, 'openid', 'asc', function (e)    {
-      if (e.result.data[0].xypay.status == 1 ){
+      if (e.result.data[0].xypay.status == 1 || e.result.data[0].xypay.status == 0 ){
         that.setData({
           userInfo: e.result.data[0],
           needXy:false

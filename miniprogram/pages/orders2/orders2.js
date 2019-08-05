@@ -112,7 +112,7 @@ Page({
       })
       return;
     }
-    if (that.data.address.xypay.amt < that.data.total){
+    if (Number(that.data.address.xypay.amt) < that.data.total){
       wx.showModal({
         title: 'Oh No',
         content: '信用额度不够了，是否有订单未支付呢~',

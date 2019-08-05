@@ -92,7 +92,7 @@
         <view>{{order.address.name}}</view>
         <view>{{order.address.phone}}</view>
         <view>{{order.address.addressd}}</view>
-        <view wx:for="{{order.order}}" wx:for-item="good">{{good.good_name}} × {{good.num}}</view>
+        <view wx:for="{{order.order}}" wx:for-item="good" wx:key="_id">{{good.good_name}} × {{good.num}}</view>
         <view>备注：{{good.remark}}</view>
         <view>下单时间：{{order.create_time}}</view>
         <view>送达时间：{{order.finishedTime}}</view>
