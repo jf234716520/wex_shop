@@ -81,7 +81,7 @@ Page({
     var that = this;
     const value = e.detail.value;
     if (value.xypay && that.data.tempFileArr.length!=0){
-      app.updateDB("customers", this.data.userInfo._id, { xypay: {status:0,amt:value.xypay,fileArr:   that.data.tempFileArr}},function(d){
+      app.updateDB("customers", this.data.userInfo._id, { xypay: {status:0,amt: new Number(value.xypay),fileArr:   that.data.tempFileArr}},function(d){
         wx.showToast({
           title: '添加成功',
         })

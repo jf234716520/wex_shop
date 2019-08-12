@@ -10,7 +10,8 @@ Page({
     orders: [],
     myList: [],
     openid: '',
-    nonce_str: ''
+    nonce_str: '',
+    spbill_create_ip: ''
   },
 
   onReady() {
