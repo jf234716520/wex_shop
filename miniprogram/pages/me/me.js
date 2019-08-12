@@ -80,6 +80,7 @@ Page({
     var openid = that.data.openid;
 
     app.getInfoWhereInOrder('customers', { "openid": openid  }, 'openid', 'asc', function (e)    {
+      console.log(e)
       if (e.result.data[0].xypay.status == 1 || e.result.data[0].xypay.status == 0 ){
         that.setData({
           userInfo: e.result.data[0],
@@ -134,10 +135,8 @@ Page({
     })
   },
 
-  goToPay() {
+  goToPay(fontData) {
     var that = this
-
-
 
       // ------获取prepay_id，所需的签名字符串------
       var p = new Promise((resolve, reject) => {
@@ -222,22 +221,17 @@ Page({
                 package: 'prepay_id=' + prepay_id,
                 signType: 'MD5',
                 paySign: paySign,
-                success: function (e) {
-                  app.getInfoWhere('order_master', {
-                    'out_trade_no': tmpOutNum
-                  }, e => {
-                    var orderId = e.data["0"]._id
-                    app.updateInfo('order_master', orderId, {
-                      'paySuccess': true,
-                      'payTime': app.CurrentTime_show()
-                    }, e => {
-                      console.log("订单状态已修改：【支付成功】" + e)
-                      wx.showToast({
-                        title: '支付成功',
-                      })
-                      wx.switchTab({
-                        url: '../me/me',
-                      })
+                success: function (e3) {
+                  app.updateDB("order_manage", fontData.currentTarget.dataset.id, { isPay: 1 }, function (e2) {
+                    wx.showModal({
+                      title: '支付成功',
+                      content: '支付成功！',
+                      showCancel: false,
+                      complete: function () {
+                        wx.switchTab({
+                          url: "../homepage/homepage"
+                        })
+                      }
                     })
                   })
                 }

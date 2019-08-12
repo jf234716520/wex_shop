@@ -184,6 +184,9 @@ Page({
             // 签名MD5加密
             var paySign = md5.md5(paySignTemp).toUpperCase()
             // 调起请求
+            console.log(that.data.address)
+            console.log(that.data.orders)
+            console.log(that.data.total1)
             wx.requestPayment({
               appId: app.globalData.appid,
               timeStamp: timeStamp,
@@ -192,21 +195,32 @@ Page({
               signType: 'MD5',
               paySign: paySign,
               success: function (e) {
-                app.getInfoWhere('order_master',{
-                  'out_trade_no': tmpOutNum
-                },e=>{
-                  var orderId = e.data["0"]._id
-                  app.updateInfo('order_master', orderId,{
-                    'paySuccess':true,
-                    'payTime': app.CurrentTime_show()
-                  },e=>{
-                    console.log("订单状态已修改：【支付成功】"+e)
-                    wx.showToast({
-                      title: '支付成功',
-                    })
-                    wx.switchTab({
-                      url: '../me/me',
-                    })
+                app.addRows("order_manage", { openid: that.data.address.openid, order: that.data.orders, order_type: 1, address: that.data.address, price: that.data.total1, create_time: app.CurrentTime(), isFinished: 0, isPay: 1 }, function (e1) {
+
+                  wx.showModal({
+                    title: '支付成功',
+                    content: '支付成功！',
+                    showCancel: false,
+                    complete: function () {
+                      wx.switchTab({
+                        url: "../homepage/homepage"
+                      })
+                    }
+                  })
+                })
+
+
+
+                app.updateInfo('order_master', orderId, {
+                  'paySuccess': true,
+                  'payTime': app.CurrentTime_show()
+                }, e => {
+                  console.log("订单状态已修改：【支付成功】" + e)
+                  wx.showToast({
+                    title: '支付成功',
+                  })
+                  wx.switchTab({
+                    url: '../me/me',
                   })
                 })
               }
