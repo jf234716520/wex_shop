@@ -228,16 +228,21 @@ Page({
                 paySign: paySign,
                 success: function (e3) {
                   app.updateDB("order_manage", fontData.currentTarget.dataset.id._id, { isPay: 1 }, function (e2) {
-                    wx.showModal({
-                      title: '支付成功',
-                      content: '支付成功！',
-                      showCancel: false,
-                      complete: function () {
-                        wx.switchTab({
-                          url: "../homepage/homepage"
-                        })
-                      }
+                    var curXypay = that.data.userInfo.xypay;
+                    curXypay.amt = parseInt(fontData.currentTarget.dataset.id.price) + parseInt(curXypay.amt);
+                    app.updateDB("customers", that.data.userInfo._id, { xypay: curXypay},function(e3){
+                      wx.showModal({
+                        title: '支付成功',
+                        content: '支付成功！',
+                        showCancel: false,
+                        complete: function () {
+                          wx.switchTab({
+                            url: "../homepage/homepage"
+                          })
+                        }
+                      })
                     })
+              
                   })
                 }
               })
