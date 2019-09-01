@@ -6,7 +6,6 @@ const md5 = require("../../utils/md5.js")
 Page({
   data: {
     orders: [],
-    nonce_str: '',
     spbill_create_ip: '',
     userInfo:{},
     needXy:false,
@@ -136,12 +135,16 @@ Page({
   },
 
   goToPay(fontData) {
+    var out_trade_no = (new Date().getTime() + app.RndNum(6)).toString()
+    var nonce_str = app.RndNum()
+    console.log("fontdata:")
+    console.log(fontData)
     var that = this
 
       // ------获取prepay_id，所需的签名字符串------
       var p = new Promise((resolve, reject) => {
         // 生成订单号
-        var out_trade_no = (new Date().getTime() + app.RndNum(6)).toString()
+        
 
         // -----生成字符串------
 
@@ -151,21 +154,23 @@ Page({
           + "&body=JSAPI"
           + "&device_info=WEB"
           + "&mch_id=" + app.globalData.mch_id
-          + "&nonce_str=" + that.data.nonce_str
+          + "&nonce_str=" + nonce_str  //to modify
           + "&notify_url=127.0.0.1"
           + "&openid=" + that.data.openid
-          + "&out_trade_no=" + out_trade_no
-          + "&spbill_create_ip=" + that.data.spbill_create_ip
+          + "&out_trade_no=" + out_trade_no  //to do
+          + "&spbill_create_ip=" + app.globalData.myIP
           + "&time_expire=" + app.beforeNowtimeByMin(-15)
           + "&time_start=" + app.CurrentTime()
-          + "&total_fee=" + parseInt(that.data.total1 * 100)
+          + "&total_fee=" + parseInt(fontData.currentTarget.dataset.id.price) * 100 //todo
           + "&trade_type=JSAPI";
+
+          //console.log(stringA)
 
         var stringSignTemp = stringA + "&key=" + app.globalData.apikey
         // 签名MD5加密
         var sign = md5.md5(stringSignTemp).toUpperCase()
         // openid
-        var openid = that.data.openid
+        var openid = app.globalData.openid
 
         resolve([sign, openid, out_trade_no])
 
@@ -178,14 +183,14 @@ Page({
           '<body>JSAPI</body>' +
           '<device_info>WEB</device_info>' +
           '<mch_id>' + app.globalData.mch_id + '</mch_id>' +
-          '<nonce_str>' + that.data.nonce_str + '</nonce_str>' +
+          '<nonce_str>' + nonce_str + '</nonce_str>' +
           '<notify_url>127.0.0.1</notify_url>' +
           '<openid>' + that.data.openid + '</openid>' +
           '<out_trade_no>' + e[2] + '</out_trade_no>' +
-          '<spbill_create_ip>' + that.data.spbill_create_ip + '</spbill_create_ip>' +
+          '<spbill_create_ip>' + app.globalData.myIP + '</spbill_create_ip>' +
           '<time_expire>' + app.beforeNowtimeByMin(-15) + '</time_expire>' +
           '<time_start>' + app.CurrentTime() + '</time_start>' +
-          '<total_fee>' + parseInt(that.data.total1 * 100) + '</total_fee>' +
+          '<total_fee>' + parseInt(fontData.currentTarget.dataset.id.price) * 100 + '</total_fee>' +  //to mod
           '<trade_type>JSAPI</trade_type>' +
           '<sign>' + e[0] + '</sign>' +
           '</xml>'
@@ -222,7 +227,7 @@ Page({
                 signType: 'MD5',
                 paySign: paySign,
                 success: function (e3) {
-                  app.updateDB("order_manage", fontData.currentTarget.dataset.id, { isPay: 1 }, function (e2) {
+                  app.updateDB("order_manage", fontData.currentTarget.dataset.id._id, { isPay: 1 }, function (e2) {
                     wx.showModal({
                       title: '支付成功',
                       content: '支付成功！',

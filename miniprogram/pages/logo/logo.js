@@ -16,7 +16,7 @@ Page({
     //初始化商品信息
     this.initGoods();
     this.getManagerList();
-    
+    this.getGlobalIP();
    
   },
 
@@ -79,6 +79,21 @@ Page({
         app.globalData.adiminArr.push(e.result.data[i].openid);
       }
       
+    })
+  },
+  getGlobalIP(){
+    wx.cloud.callFunction({
+      name: 'getIP'
+    }).then(e => {
+      if (e) {
+        let myIP = e.result.body.split("query\"\:\"")[1].split("\"\,\"")[0]
+        console.log("IP地址为：" + myIP)
+        app.globalData.myIP = myIP
+      }
+    }).catch(err => {
+      if (err) {
+          console.log("ip获取错误！")
+      }
     })
   }
 })

@@ -21,7 +21,7 @@
             <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
             <!-- 商品图片
                 <navigator url="../details/details?_id={{item.good_id}}"> -->
-            <image class="cart-thumb" src="{{item.good_img}}"></image>
+            <image class="cart-thumb" src="{{item.good_img[0]}}"></image>
             <!--</navigator>-->
             <!-- 名称 -->
             <text class="cart-pro-name">{{item.good_name}}</text>

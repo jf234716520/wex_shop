@@ -20,24 +20,36 @@ Page({
     var nonce_str = app.RndNum()
 
     // 获取ip地址
-    wx.cloud.callFunction({
-      name: 'getIP'
-    }).then(e=>{
-      if(e){
-        let spbill_create_ip = e.result.body.split("query\"\:\"")[1].split("\"\,\"")[0]
-        console.log("IP地址为：" + spbill_create_ip)
-        self.setData({
-          spbill_create_ip: spbill_create_ip
-        })
-      }
-    }).catch(err=>{
-      if (err) {
-        wx.showModal({
-          title: '错误',
-          content: '请您重新下单~',
-        })
-      }
-    })
+    // wx.cloud.callFunction({
+    //   name: 'getIP'
+    // }).then(e=>{
+    //   if(e){
+    //     let spbill_create_ip = e.result.body.split("query\"\:\"")[1].split("\"\,\"")[0]
+    //     console.log("IP地址为：" + spbill_create_ip)
+    //     self.setData({
+    //       spbill_create_ip: spbill_create_ip
+    //     })
+    //   }
+    // }).catch(err=>{
+    //   if (err) {
+    //     wx.showModal({
+    //       title: '错误',
+    //       content: '请您重新下单~',
+    //     })
+    //   }
+    // })
+    if (app.globalData.myIP != "")
+    {
+      this.setData({
+        spbill_create_ip:app.globalData.myIP
+      })
+    }else{
+      wx.showModal({
+        title: '错误',
+        content: 'IP获取失败，请重新打开小程序',
+      })
+      return
+    }
 
     // 获取总价和openid
     var orders = [];

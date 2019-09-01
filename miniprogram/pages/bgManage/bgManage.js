@@ -4,7 +4,8 @@ Page({
   data: {
     orderList:{},
     sendingList:{},
-    
+    unpayList:{},
+
     cardNum:2,
   },
 
@@ -85,6 +86,11 @@ Page({
       console.log(e)
       that.setData({
         orderList: e.result.data
+      })
+    })
+    app.getInfoWhereInOrder('order_manage',{'isPay':0},'orderTime','desc',e=>{
+      that.setData({
+        unpayList:e.result.data
       })
     })
   },

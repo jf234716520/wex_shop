@@ -34,7 +34,8 @@ App({
       address_Arr: [
         "宿舍楼", "学院", "图书馆", "餐厅", "教学楼", "其他"
       ],
-      maxXyDay:15
+      maxXyDay:15,
+      myIP:''
     }
   },
 
